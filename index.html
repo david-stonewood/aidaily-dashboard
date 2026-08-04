@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 日报 · 2026-08-04</title>
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --card-bg: #ffffff;
+    --text: #1a1d29;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05);
+    --radius: 14px;
+    --c-models: #6366f1;
+    --c-products: #0ea5e9;
+    --c-industry: #f59e0b;
+    --c-paper: #10b981;
+    --c-tip: #ec4899;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* Hero */
+  .hero {
+    margin: 28px 0 8px;
+    padding: 44px 36px 36px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #db2777 100%);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(79,70,229,.25);
+  }
+  .hero .kicker { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; opacity: .85; }
+  .hero h1 { font-size: clamp(26px, 4vw, 38px); margin: 8px 0 6px; font-weight: 800; }
+  .hero .sub { font-size: 14px; opacity: .9; }
+  .hero .total { margin-top: 18px; font-size: 15px; font-weight: 600; opacity: .95; }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .stat {
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 12px;
+    padding: 12px 16px;
+    backdrop-filter: blur(4px);
+  }
+  .stat .n { font-size: 24px; font-weight: 800; }
+  .stat .l { font-size: 12.5px; opacity: .9; margin-top: 2px; }
+
+  /* Anchor nav */
+  nav.toc {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    padding: 14px 4px;
+    background: var(--bg);
+  }
+  nav.toc a {
+    text-decoration: none; font-size: 13.5px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px;
+    background: var(--card-bg); color: var(--text);
+    border: 1px solid var(--border);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  nav.toc a:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+  nav.toc a .cnt { color: var(--text-muted); font-weight: 500; margin-left: 4px; }
+  .ob-settings-btn {
+    margin-left: auto;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    padding: 7px 14px; border-radius: 999px;
+    background: #1a1d29; color: #fff; border: none;
+  }
+  .ob-settings-btn:hover { opacity: .85; }
+
+  /* Sections */
+  section.block { margin-top: 34px; scroll-margin-top: 76px; }
+  .block-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+  .block-head .dot { width: 12px; height: 12px; border-radius: 4px; align-self: center; }
+  .block-head h2 { font-size: 21px; font-weight: 800; }
+  .block-head .range { font-size: 13px; color: var(--text-muted); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px 16px;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 10px;
+    transition: transform .15s ease, box-shadow .2s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.09); }
+  .card-top { display: flex; align-items: center; gap: 10px; padding-right: 40px; }
+  .num {
+    flex: none;
+    min-width: 34px; height: 34px; padding: 0 8px;
+    border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px; color: #fff;
+  }
+  .chip {
+    font-size: 11.5px; color: var(--text-muted);
+    background: #f3f4f6; border: 1px solid var(--border);
+    border-radius: 999px; padding: 3px 10px;
+    max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .fav {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 10px;
+    border: 1px solid var(--border); background: #fff;
+    font-size: 16px; line-height: 1; cursor: pointer; color: #c8ccd4;
+    transition: all .15s ease;
+  }
+  .fav:hover { color: #f59e0b; border-color: #f59e0b; transform: scale(1.08); }
+  .fav.faved { color: #f59e0b; background: #fef3c7; border-color: #f59e0b; }
+  .card h3 { font-size: 15.5px; font-weight: 700; line-height: 1.5; }
+  .f { font-size: 13px; color: #3f4657; }
+  .f b {
+    display: inline-block; font-size: 11.5px; font-weight: 700;
+    color: #4f46e5; background: #eef2ff; border-radius: 6px;
+    padding: 1px 8px; margin-right: 6px;
+  }
+  .f.f-use b { color: #047857; background: #ecfdf5; }
+  .f.f-how b { color: #b45309; background: #fffbeb; }
+  .f.f-gist b { color: #374151; background: #f3f4f6; }
+  .card a.read {
+    align-self: flex-start;
+    font-size: 13px; font-weight: 600; text-decoration: none;
+    color: #4f46e5; margin-top: auto;
+  }
+  .card a.read:hover { text-decoration: underline; }
+
+  /* GitHub 升星榜 */
+  .gh-board {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .gh-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .gh-table th {
+    text-align: left; font-size: 12px; color: var(--text-muted);
+    font-weight: 600; padding: 10px 16px;
+    background: #f9fafb; border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .gh-table td { padding: 12px 16px; border-bottom: 1px solid #f1f2f6; vertical-align: top; }
+  .gh-table tr:last-child td { border-bottom: none; }
+  .gh-table tbody tr:hover { background: #fafbff; }
+  .gh-rank {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 26px; height: 26px; padding: 0 6px;
+    border-radius: 8px; font-weight: 800; font-size: 13px;
+    background: #f3f4f6; color: var(--text-muted);
+  }
+  .gh-rank.top { background: #fef3c7; color: #b45309; }
+  .gh-repo { font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .gh-repo a { color: #1a1d29; text-decoration: none; }
+  .gh-repo a:hover { color: #4f46e5; text-decoration: underline; }
+  .gh-fav {
+    position: static; width: 24px; height: 24px; border-radius: 7px; font-size: 12px;
+    border: 1px solid var(--border); background: #fff; cursor: pointer; color: #c8ccd4;
+  }
+  .gh-fav:hover { color: #f59e0b; border-color: #f59e0b; }
+  .gh-fav.faved { color: #f59e0b; background: #fef3c7; border-color: #f59e0b; }
+  .gh-fields { margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
+  .gh-lang {
+    font-size: 11.5px; color: var(--text-muted);
+    background: #f3f4f6; border: 1px solid var(--border);
+    border-radius: 999px; padding: 2px 9px; white-space: nowrap;
+  }
+  .gh-week { font-weight: 800; color: #d97706; white-space: nowrap; }
+  .gh-total { color: var(--text-muted); white-space: nowrap; }
+  .gh-note { font-size: 12.5px; color: var(--text-muted); margin: 10px 2px 0; }
+  @media (max-width: 720px) {
+    .gh-table .hide-sm { display: none; }
+    .gh-table th, .gh-table td { padding: 10px 10px; }
+  }
+
+  /* Obsidian 设置弹窗 */
+  .modal-mask {
+    position: fixed; inset: 0; z-index: 50;
+    background: rgba(17,19,28,.45);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-mask.open { display: flex; }
+  .modal {
+    background: #fff; border-radius: 16px; padding: 22px 26px 18px;
+    width: 100%; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    max-height: 88vh; overflow-y: auto; display: flex; flex-direction: column;
+  }
+  .modal h3 { font-size: 17px; margin-bottom: 4px; }
+  .modal .tip { font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px; }
+  .modal label { display: block; font-size: 13px; font-weight: 600; margin: 10px 0 4px; }
+  .modal input {
+    width: 100%; padding: 8px 12px; font-size: 14px;
+    border: 1px solid var(--border); border-radius: 10px; outline: none;
+  }
+  .modal input:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
+  .modal .actions {
+    display: flex; justify-content: flex-end; gap: 10px;
+    margin-top: 16px; padding-top: 12px;
+    border-top: 1px solid var(--border);
+    position: sticky; bottom: -18px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0, #fff 14px);
+    z-index: 1;
+  }
+  .modal button {
+    font-size: 13.5px; font-weight: 600; cursor: pointer;
+    padding: 8px 18px; border-radius: 10px; border: 1px solid var(--border); background: #fff;
+  }
+  .modal button.primary { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+  .modal button.primary:hover { opacity: .9; }
+  .folders { max-height: 300px; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; padding: 6px 12px 10px; }
+  .folder-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+  .folder-row .fl { flex: none; width: 118px; font-size: 12.5px; font-weight: 600; color: var(--text-muted); }
+  .folder-row input { flex: 1; }
+  .warn {
+    margin-top: 6px; font-size: 12.5px; font-weight: 600;
+    color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca;
+    border-radius: 8px; padding: 6px 10px;
+  }
+  .preview {
+    margin-top: 14px; font-size: 12.5px; color: var(--text-muted);
+    background: #f9fafb; border: 1px dashed var(--border);
+    border-radius: 8px; padding: 8px 12px;
+    word-break: break-all;
+  }
+  .preview b { color: #1a1d29; }
+  .modal-wide { max-width: 660px; }
+  .fav-list {
+    margin-top: 12px; min-height: 120px; max-height: 420px; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .fav-item {
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 12px; font-size: 13px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .fav-item .fi-top { display: flex; align-items: center; gap: 8px; }
+  .fav-item .fi-title { font-weight: 700; flex: 1; line-height: 1.4; }
+  .fav-item .fi-tag {
+    flex: none; font-size: 11px; font-weight: 600; color: #fff;
+    border-radius: 999px; padding: 2px 9px; background: #7c3aed;
+  }
+  .fav-item .fi-meta { color: var(--text-muted); font-size: 12px; word-break: break-all; }
+  .fav-item .fi-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fav-item .fi-actions button {
+    font-size: 12px; padding: 3px 10px; border-radius: 7px;
+    border: 1px solid var(--border); background: #fff; cursor: pointer;
+  }
+  .fav-item .fi-actions button:hover { border-color: #4f46e5; color: #4f46e5; }
+  .fav-item .fi-actions button.del:hover { border-color: #dc2626; color: #dc2626; }
+  .fav-empty { color: var(--text-muted); text-align: center; padding: 26px 0; font-size: 13px; }
+  .fi-badge { flex: none; font-size: 11px; font-weight: 600; border-radius: 999px; padding: 2px 9px; margin-left: 4px; }
+  .fi-badge.done { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+  .fi-badge.todo { background: #fff7ed; color: #b45309; border: 1px solid #fed7aa; }
+  .fav-item.is-done { opacity: .7; }
+  .fav-item.is-done .fi-title { text-decoration: line-through; text-decoration-color: #cbd5e1; }
+  .ai-panel {
+    margin-top: 16px; border: 1px dashed var(--border);
+    border-radius: 10px; padding: 12px 14px;
+    background: #fafbff;
+  }
+  .ai-panel h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #1a1d29; }
+  .ai-status {
+    font-size: 12.5px; color: var(--text-muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ai-status .spinner {
+    display: inline-block; width: 12px; height: 12px;
+    border: 2px solid #c7d2fe; border-top-color: #4f46e5;
+    border-radius: 50%; animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ai-status.ok { color: #047857; }
+  .ai-status.err { color: #b91c1c; }
+  .ai-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .ai-meta label { display: block; font-size: 11.5px; color: var(--text-muted); margin: 0 0 3px; }
+  .ai-meta input { width: 100%; font-size: 12.5px; padding: 5px 9px; border: 1px solid var(--border); border-radius: 6px; }
+  .ai-meta input.tags { grid-column: 1 / -1; }
+  textarea#aiBody {
+    width: 100%; margin-top: 10px;
+    min-height: 130px; max-height: 200px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px; line-height: 1.55;
+    padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;
+    resize: vertical;
+  }
+  .ai-actions { display: flex; gap: 8px; margin-top: 10px; align-items: center; }
+  .ai-actions button {
+    font-size: 12px; padding: 4px 11px; border-radius: 7px;
+    border: 1px solid var(--border); background: #fff; cursor: pointer;
+  }
+  .ai-actions button:hover { border-color: #4f46e5; color: #4f46e5; }
+  .ai-link { font-size: 12px; color: #4f46e5; text-decoration: none; cursor: pointer; }
+  .ai-link:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .ai-meta { grid-template-columns: 1fr; } }
+
+  /* Toast */
+  .toast {
+    position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(20px);
+    background: #1a1d29; color: #fff; font-size: 13.5px;
+    padding: 11px 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    opacity: 0; pointer-events: none; transition: all .25s ease; z-index: 60;
+    max-width: 90vw; text-align: center;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  footer {
+    margin-top: 48px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text-muted);
+    display: flex; flex-wrap: wrap; gap: 6px 18px;
+  }
+  footer a { color: #4f46e5; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .hero { padding: 32px 22px 26px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">AI HOT · 每日精选</div>
+    <h1>AI 晨报 · 2026 年 8 月 4 日（周二）</h1>
+    <div class="sub">数据窗口：北京时间 8 月 3 日 08:00 — 8 月 4 日 08:00 · 日报于今天早晨 08:00 生成 · 每条附「为什么选 / 摘要 / 能不能用 / 怎么用」四问提炼</div>
+    <div class="total">今日共收录 <strong>21</strong> 条精选动态 + GitHub 一周升星榜 <strong>10</strong> 条</div>
+    <div class="stats">
+      <div class="stat"><div class="n">2</div><div class="l">AI模型</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">AI产品</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">行业动态</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">论文研究</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">技巧与实践</div></div>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <a href="#sec-models">AI模型<span class="cnt">2</span></a>
+    <a href="#sec-products">AI产品<span class="cnt">8</span></a>
+    <a href="#sec-industry">行业动态<span class="cnt">2</span></a>
+    <a href="#sec-paper">论文研究<span class="cnt">1</span></a>
+    <a href="#sec-tip">技巧与实践<span class="cnt">8</span></a>
+    <a href="#sec-github">GitHub升星<span class="cnt">10</span></a>
+    <button class="ob-settings-btn" id="aiSettingsBtn" type="button">🤖 AI 提炼设置</button>
+    <button class="ob-settings-btn" id="favListBtn" type="button">★ 收藏夹 <span id="favCount">0</span></button>
+    <button class="ob-settings-btn" id="obSettingsBtn" type="button">⚙ Obsidian 收藏设置</button>
+  </nav>
+
+  <main id="app"></main>
+
+  <footer>
+    <span>本期日报共 <strong>21</strong> 条（AI模型 2 · AI产品 8 · 行业动态 2 · 论文研究 1 · 技巧与实践 8）+ GitHub升星 10 条</span>
+    <span>数据源：<a href="https://aihot.virxact.com/daily/2026-08-04" target="_blank" rel="noopener noreferrer">AI HOT 日报 · 2026-08-04</a>；GitHub升星来自 <a href="https://github.com/trending?since=weekly" target="_blank" rel="noopener noreferrer">GitHub Trending（周榜）</a>，今天早晨 09:38（北京时间）抓取</span>
+    <span>摘要与四问提炼由 AI 整理；收藏功能通过 obsidian:// 协议写入本地 Obsidian 库</span>
+  </footer>
+</div>
+
+<div class="modal-mask" id="obModal">
+  <div class="modal">
+    <h3>Obsidian 收藏设置</h3>
+    <div class="tip">每个版块可单独指定落库目录（收藏时可再临时修改）。<b style="color:#b45309">Vault 库名必须与 Obsidian → 设置 → 库 中显示的完全一致且不含斜杠；留空则写入最近打开的库。</b>配置自动保存在本机浏览器与当前链接参数中，更换部署地址后收藏带 #cfg 的完整链接即可恢复。</div>
+    <label for="obVault">Obsidian 库名称（Vault，留空则使用最近打开的库）</label>
+    <input id="obVault" type="text" placeholder="例如：ObsidianVault（不含斜杠）">
+    <label>各版块落库目录（库内相对路径）</label>
+    <div class="folders" id="obFolders"></div>
+    <div class="actions">
+      <button type="button" id="obCancel">取消</button>
+      <button type="button" class="primary" id="obSave">保存设置</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="favModal">
+  <div class="modal">
+    <h3 id="favTitle">收藏到 Obsidian</h3>
+    <div class="tip" id="favTip">确认本条笔记的落库位置（只影响当前这条）。</div>
+    <label for="favVault">Obsidian 库名称（<b style="color:#047857">建议留空</b>：自动写入最近打开的库）</label>
+    <input id="favVault" type="text" placeholder="留空即可，或填库切换器中的精确库名（不含斜杠）">
+    <div id="favVaultWarn" class="warn" hidden></div>
+    <div class="tip" style="color:#b45309;margin:8px 0 0">若填写 vault 后仍报错：清空留空再试；并确认 Obsidian 已打开过该库（库名在左下角库切换器中查看，「AI Learning」这类通常是库内目录，请填到下方落库目录）。</div>
+    <label for="favFolder">本次落库目录（库内相对路径）</label>
+    <input id="favFolder" type="text" maxlength="120" placeholder="例如：AI Learning/AI产品">
+    <div class="ai-panel" id="aiPanel">
+      <h4>🤖 AI 提炼（拉原文 + 大模型总结）</h4>
+      <div class="ai-status" id="aiStatus">未配置 AI，点击右侧「启用」开始提炼</div>
+      <div id="aiFields" hidden>
+        <div class="ai-meta">
+          <div><label>title（笔记标题）</label><input id="aiTitle" type="text"></div>
+          <div><label>source_title（原文标题）</label><input id="aiSourceTitle" type="text"></div>
+          <div><label>author（作者）</label><input id="aiAuthor" type="text"></div>
+          <div><label>created（YYYY-MM-DD）</label><input id="aiCreated" type="text"></div>
+          <input class="tags" id="aiTags" type="text" placeholder="tags（英文逗号分隔）">
+        </div>
+        <label for="aiBody" style="font-size:11.5px;color:var(--text-muted);margin-top:10px;display:block">笔记正文（Markdown）</label>
+        <textarea id="aiBody" spellcheck="false"></textarea>
+        <div class="ai-actions">
+          <button type="button" id="aiReRun">🔄 重新提炼</button>
+          <button type="button" id="aiSkip">仅保存卡片原摘要</button>
+          <a class="ai-link" id="aiOpenSettings">⚙ AI 设置</a>
+        </div>
+      </div>
+      <div class="ai-actions" id="aiStartRow">
+        <button type="button" id="aiStart">启用 AI 提炼</button>
+        <a class="ai-link" id="aiOpenSettings2">⚙ AI 设置</a>
+      </div>
+    </div>
+    <div class="preview" id="favPreview">路径预览：…</div>
+    <div class="actions">
+      <button type="button" id="favCancel">取消</button>
+      <button type="button" class="primary" id="favConfirm">☆ 收藏</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="favListModal">
+  <div class="modal modal-wide">
+    <h3>★ 已收藏条目（<span id="favListCount">0</span>）</h3>
+    <div class="tip">已通过 obsidian:// 写入本地 Obsidian 的收藏记录（记录保存在本机浏览器，Obsidian 中的笔记不受影响）。同一条不会重复落库。「📤 导出待提炼」只导出未提炼过的条目；WorkBuddy 处理完后，请到收藏夹点「✓ 标记已提炼」归档。</div>
+    <input id="favSearch" type="text" placeholder="搜索标题 / 版块 / 落库目录关键字…">
+    <div class="fav-list" id="favList"></div>
+    <div class="actions">
+      <button type="button" id="favExport">📤 导出待提炼</button>
+      <button type="button" id="favExportAll">📤 全量导出（含已提炼）</button>
+      <button type="button" id="favListClose">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="aiSettingsModal">
+  <div class="modal">
+    <h3>🤖 AI 提炼设置</h3>
+    <div class="tip">两种提炼方式：<b style="color:#047857">「WorkBuddy 代提炼」不消耗任何 token</b>——点收藏只记录，之后把「待提炼清单」发给 WorkBuddy 由它提炼并写入 Obsidian 库；「本地 DeepSeek」则在此页面直接调用你的 API（消耗你的 token）。配置自动保存在本机浏览器与当前链接参数中——<b style="color:#b45309">更换部署地址后，把带 #cfg 的完整链接收藏起来即可恢复配置</b>；API Key 仅用于本机调用，请勿分享含 #cfg 的链接。</div>
+    <label for="aiMode">提炼模式</label>
+    <select id="aiMode" style="width:100%;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;outline:none;background:#fff;">
+      <option value="workbuddy">WorkBuddy 代提炼（推荐，零 token）</option>
+      <option value="local">本地 DeepSeek（消耗你的 token）</option>
+    </select>
+    <label for="aiBase">DeepSeek API Base URL（本地模式用）</label>
+    <input id="aiBase" type="text" placeholder="https://api.deepseek.com/v1">
+    <label for="aiKey">DeepSeek API Key（本地模式用）</label>
+    <input id="aiKey" type="password" placeholder="sk-...">
+    <label for="aiModel">模型名称（本地模式用）</label>
+    <input id="aiModel" type="text" placeholder="deepseek-chat（默认） / 自定义 V4 Pro 等">
+    <label for="jinaKey">Jina Reader API Key（可选，拉原文用，免费可留空）</label>
+    <input id="jinaKey" type="text" placeholder="留空使用免认证端点（限频较低）">
+    <label for="fetchProvider">原文获取服务（拉取失败时可手动切换）</label>
+    <select id="fetchProvider" style="width:100%;padding:9px 12px;font-size:14px;border:1px solid var(--border);border-radius:10px;outline:none;background:#fff;">
+      <option value="auto">自动（Jina → AllOrigins → Microlink → 自定义）</option>
+      <option value="jina">仅 Jina Reader</option>
+      <option value="allorigins">仅 AllOrigins 代理</option>
+      <option value="microlink">仅 Microlink</option>
+      <option value="custom">自定义 URL 模板</option>
+    </select>
+    <label for="fetchTemplate">自定义 URL 模板（仅"自定义"模式生效；含 <code>{url}</code> 占位符）</label>
+    <input id="fetchTemplate" type="text" placeholder="例如：https://r.jina.ai/{url}">
+    <div class="actions">
+      <button type="button" id="aiCancel">取消</button>
+      <button type="button" class="primary" id="aiSave">保存设置</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SECTIONS = [
+  {
+    id: "sec-models", label: "AI模型", color: "var(--c-models)",
+    items: [
+      { title: "Qwen3.8-Max 发布：开源最强编码与协作模型，2.4T 参数",
+        source: "Qwen 官方博客", url: "https://qwen.ai/blog?id=qwen3.8",
+        why: "AI 新技术 / AI 开发：开源阵营的旗舰编码模型，有机会平替闭源 API 成为开发主力，直接降低智能体使用成本。",
+        gist: "Qwen 家族迄今最强模型，2.4T 参数（95B 激活的 MoE），主打编码与多智能体协作，首次开源 Qwen-Max 级权重，开放权重下周放出。",
+        usable: "能。权重下周放出后可私有化部署，也可先通过官方 API 试用；注意超大模型的推理算力门槛。",
+        howto: "编码场景先走 API 接入 IDE/CLI 智能体做主力模型；有算力的团队可私有化部署做企业内网编码助手，源码不出域。" },
+      { title: "商汤发布 SenseNova U1.5-Lite-Preview 开源模型",
+        source: "X · 商汤 SenseTime", url: "https://x.com/SenseTime_AI/status/2084288424236782073",
+        why: "AI 新技术：8B 轻量级的原生统一多模态模型，端侧与低成本图像生成/编辑场景的新选择。",
+        gist: "基于 NEO-Unify 架构的统一多模态模型，仅 8B-MoT 参数即可达到商业闭源模型的生成与编辑质量，已开源。",
+        usable: "能，权重开源可下载；轻量级意味着单卡即可运行。",
+        howto: "适合搭建企业内部图像生成/编辑流水线（电商图、海报初稿），私有化部署替代按量付费的闭源生图 API。" }
+    ]
+  },
+  {
+    id: "sec-products", label: "AI产品", color: "var(--c-products)",
+    items: [
+      { title: "Cloudflare 推出 Billable Usage API",
+        source: "Cloudflare Blog", url: "https://blog.cloudflare.com/billable-usage-api",
+        why: "AI 企业信息化：AI/云成本精细化是落地刚需，程序化成本可见性让部门级分摊与预算管控成为可能。",
+        gist: "单一端点按产品与计费周期返回用量与成本，覆盖 Workers、R2、D1、Workers AI、Vectorize、Images、Stream。",
+        usable: "能，自助账户即可调用；仅限 Cloudflare 体系内的用量。",
+        howto: "接入内部 FinOps 看板，按项目维度拉取 Workers AI 推理成本，配置预算阈值告警。" },
+      { title: "OpenRouter 推出 Ori Eval 简化评估流程",
+        source: "X · OpenRouter", url: "https://x.com/OpenRouter/status/2084301100078027143",
+        why: "AI 开发：“没有最好的模型，只有最适合任务的模型”——评估基建是模型选型与质量回归的核心工具。",
+        gist: "利用 OpenRouter 的 API 对代码库中的任务自动跑评估，一条命令即可生成评估环境，大幅降低编写 eval 的门槛。",
+        usable: "能，一条 curl 命令即可安装体验；评估任务需自行定义。",
+        howto: "为自有提示词/智能体建立回归评估集，每当模型换代（如 Qwen3.8-Max 放出）先量化对比再决定是否切换。" },
+      { title: "Cloudflare 推出 @cloudflare/computer 预览版",
+        source: "Cloudflare Blog", url: "https://blog.cloudflare.com/cloudflare-computer",
+        why: "AI 新技术 / AI 新物种：给智能体配一台“电脑”（虚拟文件系统 + 多执行环境）是 Agent 基础设施的最新热点。",
+        gist: "开源智能体运行时，为每个智能体提供虚拟文件系统，支持在 isolate、容器沙箱或浏览器中执行代码。",
+        usable: "早期预览版，适合试玩与架构预研，暂不建议上生产。",
+        howto: "用于构建代码执行类 Agent（数据分析、文件处理），以隔离环境安全执行不可信代码。" },
+      { title: "GPT-Live 实时音频新架构发布",
+        source: "X · Greg Brockman", url: "https://x.com/gdb/status/2084405421041963356",
+        why: "AI 新技术：全双工“边听边说”是语音交互的下一代形态，直接影响语音客服/助手类产品设计。",
+        gist: "OpenAI 从客户端到模型重建语音栈，音频持续流动，深入推理与工具调用不再打断对话，目标是在 ChatGPT 规模下做到自然。",
+        usable: "逐步开放中，需关注 API 可用性与定价。",
+        howto: "语音客服、语音助手团队跟进其 API 开放节奏，提前规划全双工语音交互的改造方案。" },
+      { title: "微软开源 Orchard 智能体训练框架",
+        source: "X · Microsoft Research", url: "https://x.com/MSFTResearch/status/2084364547142418722",
+        why: "AI 新技能 / AI 开发：智能体训练框架开源，让小模型经后训练也能胜任 Agent 任务，是降本的重要路径。",
+        gist: "微软面向研究社区的开源框架，跨任务类型训练和评估 AI 智能体，通过复用同一套基础设施让小模型也有强劲表现。",
+        usable: "能，已开源；偏研究向，需要一定训练工程能力。",
+        howto: "研究团队可用它对垂直场景 Agent（客服、运维、审核）做后训练，以小模型达到可用性能，降低推理成本。" },
+      { title: "Cloudflare Workers 与 Containers 支持入站 TCP 和 gRPC",
+        source: "Cloudflare Blog", url: "https://blog.cloudflare.com/grpc-workers",
+        why: "AI 开发：Serverless 支持长连接与 gRPC，把 Agent 服务部署到边缘的限制又少一层。",
+        gist: "新增 connect(socket) 处理器，可直接接受 Spectrum 提供的入站 TCP 套接字，并转发至 Durable Objects 或 Containers，实现全双工通信。",
+        usable: "能，已正式发布可用。",
+        howto: "将需要长连接的 Agent 服务（MCP server、实时推送通道）边缘化部署，就近服务用户降低延迟。" },
+      { title: "Data Commons on Spanner Graph 正式可用",
+        source: "Google Cloud 博客", url: "https://cloud.google.com/blog/products/databases/unify-public-and-private-data-with-data-commons-on-spanner-graph",
+        why: "AI 知识管理：把私有知识与公共数据集统一到一张知识图谱，是企业知识库 + RAG 的新底座选项。",
+        gist: "Google Cloud 宣布正式可用，并预览新版 Data Commons Platform，支持私有知识与公共数据集知识图谱的统一查询。",
+        usable: "能（GCP 用户）；需评估数据上云的合规性。",
+        howto: "企业知识图谱项目可试点：将内部实体数据与公共统计/百科数据关联查询，为 RAG 提供结构化增强检索。" },
+      { title: "Claude Code 连接器可复用至 Artifacts",
+        source: "X · Thariq", url: "https://x.com/trq212/status/2084387303959740449",
+        why: "AI 生产力：连接器一次配置、多处复用，是智能体打通个人工作流（邮件/日历/IM）的关键一环。",
+        gist: "官方工程师确认：已连接的 Claude 连接器（Gmail、日历、Slack 等）可在 Claude Code 中使用，包括 Artifacts 内部。",
+        usable: "能，即日可用，无需额外配置。",
+        howto: "在 Claude 中连好办公套件后，用 Claude Code 直接编写自动化脚本批量处理邮件与日程，用 Artifacts 做结果可视化。" }
+    ]
+  },
+  {
+    id: "sec-industry", label: "行业动态", color: "var(--c-industry)",
+    items: [
+      { title: "欧盟《人工智能法案》透明度规则生效",
+        source: "The Verge", url: "https://www.theverge.com/ai-artificial-intelligence/974571/eu-ai-act-transparency-labels-rules-deepfakes",
+        why: "AI 企业信息化 / 合规：出海产品的强制合规项，直接影响 AI 功能的交互与内容标识设计。",
+        gist: "8 月 2 日起生效：必须披露用户在与 AI 互动，并为合成音视频/文本添加机器可读标记；违规最高罚 1500 万欧元或全球年营业额 3%，存量模型有 4 个月宽限期。",
+        usable: "直接适用于有欧盟用户的业务；可选的 AI 披露标签体系已发布。",
+        howto: "出海产品尽快上线 AI 交互披露文案与生成内容水印/元数据标记，并推动法务完成合规差距评估。" },
+      { title: "Databricks 完成对 Panther 的收购",
+        source: "Databricks Blog", url: "https://www.databricks.com/blog/databricks-completes-acquisition-panther-accelerating-security-lakehouse-era",
+        why: "AI 企业信息化：数据平台与安全运营合并，“安全湖仓”代表企业数据基建的整合趋势。",
+        gist: "Databricks 正式完成收购安全数据平台 Panther，将安全分析能力整合进统一数据架构，支撑安全运营与威胁检测负载；交易条款未披露。",
+        usable: "间接价值——主要影响安全产品选型判断。",
+        howto: "安全团队做 SIEM 选型时关注湖仓一体方案，评估能否借此消除安全数据孤岛。" }
+    ]
+  },
+  {
+    id: "sec-paper", label: "论文研究", color: "var(--c-paper)",
+    items: [
+      { title: "多模态大语言模型对齐的全面研究（Apple）",
+        source: "Apple ML Research", url: "https://machinelearning.apple.com/research/alignment-multimodal-llms",
+        why: "AI 新技术：多模态偏好对齐的系统综述 + 新数据构建方法，做多模态模型微调时的实用参考手册。",
+        gist: "Apple 团队将多模态偏好对齐算法分为离线（DPO）与在线（online-DPO）两类并系统对比，发现两者结合可在特定场景提升性能；提出无需额外标注或外部模型的偏好数据构建方法 BDHS（偏差驱动幻觉采样），多项基准上与既有对齐方法表现相当。",
+        usable: "能——方法论与数据构造思路可直接复现；属于研究向，需要训练工程能力配合。",
+        howto: "微调多模态模型时：用 BDHS 思路低成本构造偏好对（利用模型偏差诱发幻觉样本作为负例），采用“离线 DPO + 在线 DPO”两阶段训练流程。" }
+    ]
+  },
+  {
+    id: "sec-tip", label: "技巧与实践", color: "var(--c-tip)",
+    items: [
+      { title: "AirLLM：单块 4GB GPU 运行 70B 模型推理",
+        source: "Hacker News 热门", url: "https://github.com/lyogavin/airllm",
+        why: "AI 生产力：4GB 显存跑 70B，是个人与小团队低成本私有化大模型的代表方案，直接降低试错门槛。",
+        gist: "AirLLM 支持在单块 4GB 显存 GPU 上推理 70B 参数大模型，无需多卡配置；项目开源，HN 热度 103 点。",
+        usable: "能，但推理速度较慢，适合离线批处理而非实时交互场景。",
+        howto: "在本地跑大模型做隐私文档批处理（摘要、抽取、清洗），零 API 成本且数据不出本机。" },
+      { title: "Palantir CEO Alex Karp 称 AI 行业“马克思主义”",
+        source: "TechCrunch", url: "https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist",
+        why: "AI 商业模式创新：“模型无关 + 企业掌控数据主权”是 toB AI 差异化定位的标杆样本。",
+        gist: "Palantir Q2 营收 19 亿美元（同比 +93%）、利润 11 亿美元；Karp 在股东信中批评前沿实验室对企业不可信，主张 Palantir 提供模型无关的 AI 软件，让企业掌控自身数据与 AI“废气”（提示词、编排、上下文）。",
+        usable: "观点参考，不可直接操作。",
+        howto: "toB AI 产品定位可借鉴：不与单一模型厂绑定，主打“企业数据主权 + 编排层”的价值主张。" },
+      { title: "Kimi Work 幻灯片制作教程发布",
+        source: "X · Kimi.ai", url: "https://x.com/Kimi_Moonshot/status/2084245860339298423",
+        why: "AI 生产力：AI 全流程做 PPT 是办公提效最直观的场景之一，官方教程降低上手成本。",
+        gist: "Kimi Slides 覆盖从结构研究到设计的全流程：K3 驱动内容结构，图表与 SmartArt 设计连贯，成品可编辑、可直接下载；此为官方教程第一期。",
+        usable: "能，即学即用。",
+        howto: "按教程用 Kimi Work 生成周报/方案 PPT 初稿，人工精修内容与版式，压缩制作时间。" },
+      { title: "Claude Code 连接器可复用至 Artifacts（技巧视角）",
+        source: "X · Thariq", url: "https://x.com/trq212/status/2084387303959740449",
+        why: "AI 生产力：连接器是被低估的能力放大器——同样能力出现在产品版块，此处从用法角度再提炼。",
+        gist: "官方工程师提醒：很多人没意识到，连接好的 Gmail、日历、Slack 等连接器在 Claude Code 与 Artifacts 中都能直接用。",
+        usable: "能，零额外配置。",
+        howto: "盘点已连接的连接器，把“查邮件 → 汇总 → 建日程”这类重复办公流交给 Claude Code 一键自动化。" },
+      { title: "EA 首席战略官谈生成式 AI 如何进入实时游戏世界",
+        source: "Runway News", url: "https://runwayml.com/news/company-news/electronic-arts-ai-summit-2026",
+        why: "AI 新物种 / 商业模式：“行为正确”比“看起来真实”更重要——神经符号混合架构对实时交互类产品有普适启发。",
+        gist: "EA 首席战略官 Mihir Vaidya：游戏面临 60fps、数千玩家同步、低延迟的严苛约束，不能只追求“看起来真实”而必须“行为正确”；主张神经符号架构保留确定性与可控性，称“控制是下一个前沿”；EA 将 AI 影响分为效率、扩展、转型三层，《模拟人生》已服务超 5 亿玩家。",
+        usable: "观点与架构思路参考。",
+        howto: "做实时交互类 AI 产品（陪伴、NPC、实时客服）时评估“生成 + 规则”的混合架构，规避纯生成路线的不可控风险。" },
+      { title: "Google Agent Skills 幕后：如何构建、测试与规模化",
+        source: "Google AI · DEV", url: "https://dev.to/googleai/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills-1am5",
+        why: "AI 新技能 / AI 知识管理：技能库的工程化治理（标准目录 + CI/CD + 持续评估）是团队沉淀 AI 技能的成熟范本。",
+        gist: "Google 开源技能库 GitHub 超 1.5 万星；每个技能须通过标准化目录结构、CI/CD 流水线（linter、链接检查、AI 辅助清单）以及提交时与每周的持续评估，并优先引用远程 MCP 工具。",
+        usable: "能，整套治理流程可直接照搬。",
+        howto: "团队自建 skill 库时复刻其流水线：模板目录 + PR 检查 + 定期评估，防止技能随模型迭代而腐化。" },
+      { title: "Gary Marcus：Anthropic 数学家 24 小时复现 OpenAI 半数结果",
+        source: "Gary Marcus 专栏", url: "https://garymarcus.substack.com/p/two-critical-updates-re-astra-and",
+        why: "AI 新技术：对厂商“突破性”宣传保持独立验证意识——这是评估 AI 进展的重要方法论。",
+        gist: "Gary Marcus 称 OpenAI 的 Astra 可能并非宣传的突破：Anthropic 数学家 Levent Alpöge 用已公开的 Fable 模型在 24 小时内复现了其半数结果。",
+        usable: "观点参考。",
+        howto: "评估新模型宣传时，先用公开模型建立复现基线再做投入决策，避免被营销节奏带着走。" },
+      { title: "Paramount CTO：AI 属史上最伟大技术趋势，但“iPhone 时刻”未到",
+        source: "Runway News", url: "https://runwayml.com/news/customers/paramount-nyc-summit-2026",
+        why: "AI 商业模式创新 / 企业信息化：传统内容巨头的 AI 采用策略——以业务成果度量、警惕 5–10 年窗口期。",
+        gist: "Phil Wiser 认为 AI 可跻身人类史上最伟大技术趋势前五，影响堪比火的使用；主张等待依赖条件成熟、以“aha 时刻”引导采用；Paramount 两年前已通过 Runway 向全员开放 AI 工具，以业务成果而非 token 消耗量衡量成效。",
+        usable: "观点参考。",
+        howto: "企业推进 AI 时设定业务成果指标（节省工时、增收），以“全员可用工具 + 标杆案例”驱动采用，而非考核使用量。" }
+    ]
+  }
+];
+
+const GITHUB_WEEKLY = [
+  { repo: "microsoft/AI-For-Beginners", lang: "Jupyter Notebook", total: 60785, week: 7554,
+    why: "AI 知识管理 / AI 新技能：体系化的 AI 入门课程，是团队培训与自学知识库的优质原材料。",
+    gist: "微软官方出品的 AI 通识课程：12 周 24 课，覆盖 ML、DL、NLP、CV 等主题，含课件、实验与测验，多语言（含中文）。",
+    usable: "能，完全免费开源，内容成熟稳定。",
+    howto: "作为团队 AI 通识培训大纲使用；拆成 Obsidian 专题笔记沉淀；配合每课实验做内训作业。" },
+  { repo: "block/buzz", lang: "Rust", total: 21865, week: 7372,
+    why: "AI 新物种：“蜂群思维”多智能体协作通信平台，代表多 Agent 编排的新交互范式。",
+    gist: "Rust 编写的 hive mind 通信平台，让多个智能体与人协同工作。",
+    usable: "早期项目，可试玩，暂不建议生产依赖。",
+    howto: "重点研究其多 Agent 消息总线与角色分工设计，借鉴到自有 Agent 编排系统。" },
+  { repo: "zhaoxuya520/reverse-skill", lang: "PowerShell", total: 15859, week: 6154,
+    why: "AI 新技能：安全/逆向领域的技能路由包，是 Claude Code 生态“技能即知识封装”的典型案例。",
+    gist: "逆向工程/授权渗透/安全研究技能包：AI 自动路由 + 按需自举工具链 + 自进化知识库，支持 Claude Code、Kiro、Cursor、Cline 等客户端。",
+    usable: "能（限授权测试场景，注意合规）；以 PowerShell 为主。",
+    howto: "授权安全测试时作为技能包导入编码智能体；其“路由 + 自举 + 自进化”结构可复用到自有领域技能包。" },
+  { repo: "virgiliojr94/book-to-skill", lang: "Python", total: 15937, week: 5405,
+    why: "AI 知识管理：把书直接变成可调用的技能——正是“知识库 → 生产力”的最短路径。",
+    gist: "输入任意技术书 PDF，自动提炼生成一个 Claude Code 技能，工作过程中可随时检索、引用、调用书中知识。",
+    usable: "能，Python 实现，即装即用。",
+    howto: "把团队必读书目与内部文档批量转成技能包，让新人 onboarding 与日常查阅一体化。" },
+  { repo: "ayghri/i-have-adhd", lang: "Python", total: 16308, week: 5012,
+    why: "AI 新技能：输出风格类技能的代表——同一个模型，靠技能约束让产出可用性大增。",
+    gist: "一个阻止编码智能体“把答案埋在长篇输出里”的 ADHD 友好输出技能。",
+    usable: "能，安装即用。",
+    howto: "直接装入 Claude Code 改善日常输出；并借鉴其写法定制团队输出规范技能（如 PR 描述、周报格式）。" },
+  { repo: "alibaba/open-code-review", lang: "Go", total: 18453, week: 3881,
+    why: "AI 开发 / AI 企业信息化：大厂实战级 AI 代码评审，“确定性流水线 + LLM”混合架构是工程落地的范式。",
+    gist: "阿里开源代码评审工具：混合架构（确定性 pipeline + LLM Agent），行级精准评论，内置 NPE、线程安全、XSS、SQL 注入等多语言规则集，兼容 OpenAI 与 Anthropic API。",
+    usable: "能，Go 编写，可私有化部署，经阿里规模验证。",
+    howto: "接入 GitLab/GitHub CI 对 MR 自动评审：先用内置规则集跑通，再按团队规范扩展自定义规则。" },
+  { repo: "1jehuang/jcode", lang: "Rust", total: 15594, week: 3735,
+    why: "AI 开发：编码 harness 的极致资源优化，低配置环境跑智能体的新选项。",
+    gist: "Rust 编写，号称内存占用最低的编码智能体 harness。",
+    usable: "早期项目，建议先评估再采用。",
+    howto: "在资源受限环境（容器、边缘节点）跑编码 Agent 时与主流方案对比测试，关注其架构取舍。" },
+  { repo: "different-ai/openwork", lang: "TypeScript", total: 20685, week: 3429,
+    why: "AI 新物种 / AI 生产力：Claude Cowork 的开源替代，桌面级“AI 协作员工”的开源路线。",
+    gist: "基于 opencode 构建的开源替代方案，提供类似 Claude Cowork 的 AI 协作工作空间。",
+    usable: "能，支持自托管。",
+    howto: "数据敏感团队可自托管替代商业产品；先对比与原版的功能差距再决定是否迁移。" },
+  { repo: "moeru-ai/airi", lang: "TypeScript", total: 46717, week: 2978,
+    why: "AI 新物种：自托管虚拟伴侣/数字生命，是 Neuro-sama 路线的开源实现。",
+    gist: "自托管、用户自有的 AI 伴侣：支持实时语音聊天，能玩 Minecraft、Factorio，覆盖 Web/macOS/Windows。",
+    usable: "能，娱乐与陪伴向产品。",
+    howto: "研究其实时语音 + 游戏 Agent 的集成架构；做陪伴、虚拟主播类产品可直接参考。" },
+  { repo: "pascalorg/editor", lang: "TypeScript", total: 20939, week: 2953,
+    why: "AI 新技术：浏览器内的 3D 建筑项目协同编辑，是 AI + 3D 内容生产管线的观察样本。",
+    gist: "在浏览器中创建并分享 3D 建筑项目。",
+    usable: "早期项目。",
+    howto: "关注其与生成式 3D 模型（如 TRELLIS）结合形成“生成 → 编辑 → 分享”设计管线的可能性。" }
+];
+
+/* ---------- 渲染 ---------- */
+const app = document.getElementById("app");
+let counter = 0;
+app.innerHTML = SECTIONS.map(sec => {
+  const start = counter + 1;
+  const cards = sec.items.map((it, idx) => {
+    counter++;
+    return `
+      <article class="card">
+        <button class="fav" type="button" title="收藏到 Obsidian" data-sec="${sec.id}" data-idx="${idx}">☆</button>
+        <div class="card-top">
+          <span class="num" style="background:${sec.color}">${counter}</span>
+          <span class="chip" title="${it.source}">${it.source}</span>
+        </div>
+        <h3>${it.title}</h3>
+        <div class="f"><b>为什么选</b>${it.why}</div>
+        <div class="f f-gist"><b>内容摘要</b>${it.gist}</div>
+        <div class="f f-use"><b>能不能用</b>${it.usable}</div>
+        <div class="f f-how"><b>怎么用</b>${it.howto}</div>
+        <a class="read" href="${it.url}" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+      </article>`;
+  }).join("");
+  const end = counter;
+  return `
+    <section class="block" id="${sec.id}">
+      <div class="block-head">
+        <span class="dot" style="background:${sec.color}"></span>
+        <h2>${sec.label}</h2>
+        <span class="range">第 ${start}–${end} 条 · 共 ${sec.items.length} 条</span>
+      </div>
+      <div class="grid">${cards}</div>
+    </section>`;
+}).join("");
+
+const fmt = n => n.toLocaleString("zh-CN");
+const ghRows = GITHUB_WEEKLY.map((g, i) => `
+  <tr>
+    <td><span class="gh-rank${i < 3 ? " top" : ""}">${i + 1}</span></td>
+    <td>
+      <div class="gh-repo">
+        <a href="https://github.com/${g.repo}" target="_blank" rel="noopener noreferrer">${g.repo}</a>
+        <button class="gh-fav" type="button" title="收藏到 Obsidian" data-gh="${i}">☆</button>
+      </div>
+      <div class="gh-fields">
+        <div class="f"><b>为什么选</b>${g.why}</div>
+        <div class="f f-gist"><b>内容摘要</b>${g.gist}</div>
+        <div class="f f-use"><b>能不能用</b>${g.usable}</div>
+        <div class="f f-how"><b>怎么用</b>${g.howto}</div>
+      </div>
+    </td>
+    <td class="hide-sm"><span class="gh-lang">${g.lang}</span></td>
+    <td class="gh-week">▲ ${fmt(g.week)}</td>
+    <td class="gh-total hide-sm">★ ${fmt(g.total)}</td>
+  </tr>`).join("");
+
+app.innerHTML += `
+  <section class="block" id="sec-github">
+    <div class="block-head">
+      <span class="dot" style="background:#d97706"></span>
+      <h2>GitHub 一周升星榜</h2>
+      <span class="range">总星数 &gt; 3,000 · 按本周新增星数排名 · 前十</span>
+    </div>
+    <div class="gh-board">
+      <table class="gh-table">
+        <thead>
+          <tr>
+            <th>#</th><th>仓库与四问提炼</th><th class="hide-sm">语言</th><th>本周新增 ★</th><th class="hide-sm">总星数</th>
+          </tr>
+        </thead>
+        <tbody>${ghRows}</tbody>
+      </table>
+    </div>
+    <p class="gh-note">口径：GitHub Trending 周榜，筛选总星数 &gt; 3,000 后按本周新增星数取前十；今天早晨 09:38（北京时间）抓取，与日报口径相互独立。</p>
+  </section>`;
+
+/* ---------- Obsidian 收藏（按版块/单条可指定目录） ---------- */
+const OB_KEY = "aiDailyObsidian";
+const REPORT_DATE = "2026-08-04";
+const FOLDER_DEFS = [
+  { id: "sec-models",   label: "AI模型",  def: "AI Learning/AI模型" },
+  { id: "sec-products", label: "AI产品",  def: "AI Learning/AI产品" },
+  { id: "sec-industry", label: "行业动态",       def: "AI Learning/行业动态" },
+  { id: "sec-paper",    label: "论文研究",       def: "AI Learning/论文研究" },
+  { id: "sec-tip",      label: "技巧与实践",     def: "AI Learning/技巧与实践" },
+  { id: "sec-github",   label: "GitHub升星",  def: "AI Learning/GitHub升星" }
+];
+
+function getObSettings() {
+  const s = { vault: "", folders: {} };
+  const saved = readJsonStore(OB_KEY, null);
+  if (saved) {
+    s.vault = saved.vault || "";
+    s.folders = saved.folders || {};
+  }
+  return s;
+}
+/* 旧版本默认目录迁移：用户浏览器可能存过旧的目录名，自动映射到新分类目录 */
+const LEGACY_FOLDERS = {
+  "AI Learning/模型发布": "AI Learning/AI模型",
+  "AI Learning/产品发布": "AI Learning/AI产品",
+  "AI Learning/技巧观点": "AI Learning/技巧与实践"
+};
+function folderFor(secId) {
+  const st = getObSettings();
+  const def = (FOLDER_DEFS.find(d => d.id === secId) || {}).def || "AI Learning";
+  const clean = v => (v || "").replace(/^\/+|\/+$/g, "");
+  const val = clean(st.folders[secId]);
+  if (!val) return def;
+  if (val.startsWith("AI晨报")) return def; /* 早期版本默认，直接回落到新默认 */
+  return LEGACY_FOLDERS[val] || val;
+}
+function saveObSettings(s) { writeStore(OB_KEY, JSON.stringify(s)); }
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove("show"), 3200);
+}
+
+/* ---------- 持久化存储：localStorage + URL 参数双通道 ----------
+   部署域名每次可能变化、预览 iframe 可能禁用 localStorage。
+   策略：所有数据先写 localStorage；AI 设置与 Obsidian 设置（小数据）额外同步进 URL hash
+   （base64url 编码），保证换域名/刷新后配置可恢复；收藏记录体积大，仅存 localStorage。
+   注意：配置写入链接参数，请勿分享含 #cfg 的完整链接。 */
+function __enc(s) { try { return btoa(unescape(encodeURIComponent(s))); } catch (e) { return ""; } }
+function __dec(s) { try { return decodeURIComponent(escape(atob(s))); } catch (e) { return null; } }
+const CFG_KEYS = ["aiDailyAiSettings", "aiDailyObsidian"];
+function readStore(key, def) {
+  try { const v = localStorage.getItem(key); if (v != null) return v; } catch (e) { /* localStorage 不可用，走 hash */ }
+  if (CFG_KEYS.includes(key)) {
+    try {
+      const m = location.hash.match(/[#&]cfg=([A-Za-z0-9+/=_-]+)/);
+      if (m) { const obj = JSON.parse(__dec(m[1])); if (obj && key in obj) return obj[key]; }
+    } catch (e) { /* 忽略损坏的 hash */ }
+  }
+  return def;
+}
+function writeStore(key, val) {
+  let ok = false;
+  try { localStorage.setItem(key, val); ok = true; } catch (e) { /* 不可用时仅尝试写 hash */ }
+  if (CFG_KEYS.includes(key)) {
+    try {
+      let obj = {};
+      const m = location.hash.match(/[#&]cfg=([A-Za-z0-9+/=_-]+)/);
+      if (m) { try { obj = JSON.parse(__dec(m[1])) || {}; } catch (e) { obj = {}; } }
+      obj[key] = val;
+      const cfg = __enc(JSON.stringify(obj));
+      const rest = location.hash.replace(/[#&]cfg=[A-Za-z0-9+/=_-]+/, "").replace(/^#/, "");
+      history.replaceState(null, "", "#cfg=" + cfg + (rest ? "&" + rest : ""));
+    } catch (e) { /* 忽略 */ }
+  }
+  return ok;
+}
+function readJsonStore(key, def) {
+  try { return JSON.parse(readStore(key, null)) || def; } catch (e) { return def; }
+}
+
+function buildNote(o, tag) {
+  /* Obsidian Properties 模板（与截图一致）：title / source / source_title / author / created / tags */
+  const title = o.title || "未命名";
+  const url = o.url || "";
+  const sourceTitle = o.source_title || o.source || "";
+  const author = o.author || "";
+  const created = o.created || REPORT_DATE;
+  const tagList = (o.tags && o.tags.length ? o.tags : [tag]).map(t => "  - " + t).join("\n");
+  /* 正文：优先用 AI 提炼结果（o.body），否则用卡片原内容（一句话总结 + 四问） */
+  const body = o.body || [
+    "## 一句话总结", o.gist || "",
+    "", "## 为什么选这条", o.why || "",
+    "", "## 内容摘要", o.gist || "",
+    "", "## 能不能用", o.usable || "",
+    "", "## 怎么用", o.howto || "",
+    ""
+  ].join("\n");
+  const sourceLine = "来源：[" + (sourceTitle || url) + "](" + url + ")" + (author ? " · 作者：" + author : "") + " · " + created;
+  return [
+    "---",
+    "title: \"" + title.replace(/"/g, '\\"') + "\"",
+    'source: "' + url + '"',
+    "source_title: \"" + (sourceTitle || "").replace(/"/g, '\\"') + "\"",
+    "author: \"" + author.replace(/"/g, '\\"') + "\"",
+    "created: " + created,
+    "tags:",
+    tagList,
+    "---",
+    "",
+    "# " + title,
+    "",
+    "> " + sourceLine,
+    "",
+    body.trim(),
+    ""
+  ].join("\n");
+}
+
+/* ---------- AI 提炼（DeepSeek + Jina Reader） ---------- */
+const AI_KEY = "aiDailyAiSettings";
+function getAiSettings() { return readJsonStore(AI_KEY, {}) || {}; }
+function saveAiSettings(s) { writeStore(AI_KEY, JSON.stringify(s)); }
+const AI_DEFAULT = { base: "https://api.deepseek.com/v1", key: "", model: "deepseek-chat", jinaKey: "", fetchProvider: "auto", fetchTemplate: "https://r.jina.ai/{url}", mode: "workbuddy" };
+function aiConfigured() {
+  const s = getAiSettings();
+  return !!(s.key && s.base);
+}
+
+/* 原文获取服务：支持多源自动回退（auto 模式按顺序尝试） */
+const FETCH_PROVIDERS = {
+  jina:        { name: "Jina Reader（r.jina.ai）",                      endpoint: (u) => "https://r.jina.ai/" + u,            headers: () => ({ "X-Return-Format": "markdown", "Accept": "text/plain" }), extract: t => t },
+  allorigins:  { name: "AllOrigins 代理（api.allorigins.win/raw）",   endpoint: (u) => "https://api.allorigins.win/raw?url=" + encodeURIComponent(u), headers: () => ({}), extract: t => t },
+  microlink:   { name: "Microlink（api.microlink.io，返回 JSON）",     endpoint: (u) => "https://api.microlink.io/?url=" + encodeURIComponent(u) + "&meta=false", headers: () => ({ "Accept": "application/json" }), extract: (t) => { try { const j = JSON.parse(t); return j?.data?.markdown?.content || j?.data?.description || ""; } catch (e) { return ""; } } },
+  custom:      { name: "自定义 URL 模板（用 {url} 占位）",             endpoint: (u, tmpl) => (tmpl || "").replace(/\{url\}/g, u), headers: () => ({}), extract: t => t }
+};
+
+async function tryFetchArticle(url, key) {
+  const s = getAiSettings();
+  const prov = FETCH_PROVIDERS[key];
+  const tmpl = key === "custom" ? (s.fetchTemplate || "https://r.jina.ai/{url}") : null;
+  const endpoint = prov.endpoint(url, tmpl);
+  const headers = Object.assign({}, prov.headers());
+  if (key === "jina" && s.jinaKey) headers["Authorization"] = "Bearer " + s.jinaKey;
+  const r = await fetch(endpoint, { headers });
+  if (!r.ok) throw new Error(key + " HTTP " + r.status);
+  const text = await r.text();
+  const content = prov.extract(text).trim();
+  if (!content || content.length < 30) throw new Error(key + " 返回内容为空（可能受站点反爬限制）");
+  return content;
+}
+
+async function fetchArticle(url) {
+  const s = getAiSettings();
+  const choice = s.fetchProvider || "auto";
+  const order = choice === "auto" ? ["jina", "allorigins", "microlink", "custom"] : [choice];
+  const errors = [];
+  for (const key of order) {
+    try {
+      const text = await tryFetchArticle(url, key);
+      return text.slice(0, 8000);
+    } catch (e) {
+      errors.push(FETCH_PROVIDERS[key].name + ": " + e.message);
+    }
+  }
+  throw new Error("所有拉取方式均失败（" + errors.join("；") + "）。常见原因：网络受限/CORS/站点反爬/限频。可在「⚙ AI 设置」切换或自定义原文获取服务，或手动把原文粘到下方文本框后点重新提炼。");
+}
+
+async function deepseekSummarize({ article, url, sourceName, tag, fallback }) {
+  const s = Object.assign({}, AI_DEFAULT, getAiSettings());
+  if (!s.key) throw new Error("未配置 DeepSeek API Key");
+  const systemPrompt = "你是一名 AI 知识整理助手。用户会给你一篇文章全文与来源信息。请严格输出 JSON 对象（不要 Markdown 代码块、不要多余文字），字段：\n" +
+    "- title: 精炼的中文笔记标题（≤25 字）\n" +
+    "- source_title: 原文标题（保持原文语种）\n" +
+    "- author: 作者署名（不可知则为空串）\n" +
+    "- created: 发布日期 YYYY-MM-DD（不可知则用 " + REPORT_DATE + "）\n" +
+    "- tags: 字符串数组，3–6 个从原文内容提炼的中文短标签（如 [\"多模态\", \"模型对齐\", \"苹果研究\"]），只按文章内容抽取，不要包含「AI晨报」、版块名等固定标签\n" +
+    "- body: Markdown 笔记正文，必须包含以下二级标题（顺序固定）：\n" +
+    "  ## 一句话总结（1-2 句点明核心价值）\n" +
+    "  ## 核心要点（3-6 条，markdown 列表）\n" +
+    "  ## 内容摘要（100-200 字完整提炼）\n" +
+    "  ## 为什么选这条（关联 AI 新技术 / 新技能 / 开发 / 生产力 / 知识管理 / 企业信息化 / 商业模式创新 / 新物种 等价值维度）\n" +
+    "  ## 关键数据与事实（具体数字/日期/引用，markdown 列表，无可写「暂无」）\n" +
+    "  ## 能不能用（可用性判断与限制）\n" +
+    "  ## 怎么用（具体落地步骤或场景，可编号）\n" +
+    "  ## 延伸思考 / 行动项（2-3 条可跟进事项）";
+  const userPrompt = "来源：" + (sourceName || "") + "\nURL：" + url + "\n\n文章全文（可能含截断）：\n" + article;
+  const body = {
+    model: s.model || "deepseek-chat",
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userPrompt }
+    ],
+    response_format: { type: "json_object" },
+    temperature: 0.3
+  };
+  const r = await fetch(s.base.replace(/\/$/, "") + "/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + s.key },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) {
+    const t = await r.text().catch(() => "");
+    throw new Error("DeepSeek HTTP " + r.status + (t ? " · " + t.slice(0, 200) : ""));
+  }
+  const data = await r.json();
+  const txt = data.choices?.[0]?.message?.content || "";
+  let parsed;
+  try { parsed = JSON.parse(txt); } catch (e) { throw new Error("模型返回非 JSON: " + txt.slice(0, 120)); }
+  return parsed;
+}
+
+function aiSetStatus(msg, cls) {
+  const el = document.getElementById("aiStatus");
+  el.className = "ai-status" + (cls ? " " + cls : "");
+  el.innerHTML = msg;
+}
+function aiShowFields(visible) {
+  document.getElementById("aiFields").hidden = !visible;
+  document.getElementById("aiStartRow").hidden = visible;
+}
+function aiFillFields(d) {
+  document.getElementById("aiTitle").value = d.title || "";
+  document.getElementById("aiSourceTitle").value = d.source_title || "";
+  document.getElementById("aiAuthor").value = d.author || "";
+  document.getElementById("aiCreated").value = d.created || REPORT_DATE;
+  document.getElementById("aiTags").value = (d.tags || []).join(", ");
+  document.getElementById("aiBody").value = d.body || "";
+}
+
+function buildFallbackSummary() {
+  /* 没调用 AI 也能保存：基于卡片原四问合成 body */
+  const it = pendingFav.item;
+  return {
+    title: it.title,
+    source_title: it.source || "",
+    author: "",
+    created: REPORT_DATE,
+    tags: [pendingFav.tag],
+    body: [
+      "## 一句话总结", it.gist || "",
+      "", "## 为什么选这条", it.why || "",
+      "", "## 内容摘要", it.gist || "",
+      "", "## 能不能用", it.usable || "",
+      "", "## 怎么用", it.howto || "",
+      ""
+    ].join("\n").trim()
+  };
+}
+
+async function runAiSummarize() {
+  if (!pendingFav) return;
+  const { item, tag } = pendingFav;
+  const s = getAiSettings();
+  if (!s.key) {
+    aiSetStatus("未配置 DeepSeek API Key，请先点击「⚙ AI 设置」", "err");
+    aiShowFields(true);
+    aiFillFields(buildFallbackSummary());
+    document.getElementById("aiReRun").disabled = true;
+    return;
+  }
+  aiShowFields(false);
+  /* 自动拉取原文：按配置顺序自动回退（Jina 失败自动切换其他方式） */
+  const provLabel = FETCH_PROVIDERS[s.fetchProvider || "auto"].name + (s.fetchProvider === "auto" ? "（自动回退链）" : "");
+  aiSetStatus('<span class="spinner"></span>正在拉取原文 · ' + provLabel + ' …');
+  let article = "";
+  try {
+    article = await fetchArticle(item.url);
+  } catch (e) {
+    aiSetStatus('⚠ 原文拉取失败：' + e.message, "err");
+    aiShowFields(true);
+    aiFillFields(buildFallbackSummary());
+    toast("自动回退均已失败，可在「⚙ AI 设置」切换原文获取服务后重试");
+    return;
+  }
+  aiSetStatus('<span class="spinner"></span>原文已获取（' + article.length + ' 字），正在调用 ' + (s.model || "deepseek-chat") + ' 提炼…');
+  try {
+    const result = await deepseekSummarize({ article, url: item.url, sourceName: item.source, tag, fallback: buildFallbackSummary() });
+    aiSetStatus('✓ 提炼完成，可在下方面板编辑后收藏', "ok");
+    aiShowFields(true);
+    aiFillFields(result);
+  } catch (e) {
+    aiSetStatus('⚠ 大模型调用失败：' + e.message + '，已回退为卡片原摘要', "err");
+    aiShowFields(true);
+    aiFillFields(buildFallbackSummary());
+  }
+}
+
+/* AI 设置弹窗 */
+const aiSettingsModal = document.getElementById("aiSettingsModal");
+function openAiSettings() {
+  const s = Object.assign({}, AI_DEFAULT, getAiSettings());
+  document.getElementById("aiBase").value = s.base || AI_DEFAULT.base;
+  document.getElementById("aiKey").value = s.key || "";
+  document.getElementById("aiModel").value = s.model || AI_DEFAULT.model;
+  document.getElementById("jinaKey").value = s.jinaKey || "";
+  document.getElementById("fetchProvider").value = s.fetchProvider || "auto";
+  document.getElementById("fetchTemplate").value = s.fetchTemplate || AI_DEFAULT.fetchTemplate;
+  document.getElementById("aiMode").value = s.mode || "workbuddy";
+  aiSettingsModal.classList.add("open");
+}
+function closeAiSettings() { aiSettingsModal.classList.remove("open"); }
+document.getElementById("aiSettingsBtn").addEventListener("click", openAiSettings);
+document.getElementById("aiCancel").addEventListener("click", closeAiSettings);
+/* 点遮罩不再关闭弹窗，避免误触丢失输入；请用弹窗内按钮关闭 */
+document.getElementById("aiSave").addEventListener("click", () => {
+  saveAiSettings({
+    base: document.getElementById("aiBase").value.trim() || AI_DEFAULT.base,
+    key: document.getElementById("aiKey").value.trim(),
+    model: document.getElementById("aiModel").value.trim() || AI_DEFAULT.model,
+    jinaKey: document.getElementById("jinaKey").value.trim(),
+    fetchProvider: document.getElementById("fetchProvider").value,
+    fetchTemplate: document.getElementById("fetchTemplate").value.trim() || AI_DEFAULT.fetchTemplate,
+    mode: document.getElementById("aiMode").value || "workbuddy"
+  });
+  closeAiSettings();
+  toast("AI 设置已保存（已写入本机与链接参数，刷新/换域名后仍可恢复）");
+});
+
+/* AI 面板内控件 */
+document.getElementById("aiStart").addEventListener("click", runAiSummarize);
+document.getElementById("aiReRun").addEventListener("click", runAiSummarize);
+document.getElementById("aiSkip").addEventListener("click", () => {
+  aiFillFields(buildFallbackSummary());
+  aiSetStatus('已使用卡片原摘要（未调用 AI）', "");
+});
+document.getElementById("aiOpenSettings").addEventListener("click", openAiSettings);
+document.getElementById("aiOpenSettings2").addEventListener("click", openAiSettings);
+
+/* ---------- 设置弹窗（按版块配目录） ---------- */
+const obModal = document.getElementById("obModal");
+const obFolders = document.getElementById("obFolders");
+
+function renderFolderRows() {
+  const st = getObSettings();
+  obFolders.innerHTML = FOLDER_DEFS.map(d => {
+    const clean = v => (v || "").replace(/^\/+|\/+$/g, "");
+    const val = clean(st.folders[d.id]) || d.def;
+    return `<div class="folder-row">
+      <span class="fl">${d.label}</span>
+      <input type="text" class="ob-folder" data-sec="${d.id}" value="${val}" placeholder="${d.def}">
+    </div>`;
+  }).join("");
+}
+function openObModal() {
+  const st = getObSettings();
+  document.getElementById("obVault").value = st.vault || "";
+  renderFolderRows();
+  obModal.classList.add("open");
+}
+function closeObModal() { obModal.classList.remove("open"); }
+
+document.getElementById("obSettingsBtn").addEventListener("click", openObModal);
+document.getElementById("obCancel").addEventListener("click", closeObModal);
+/* 点遮罩不再关闭弹窗，避免误触丢失输入；请用弹窗内按钮关闭 */
+document.getElementById("obSave").addEventListener("click", () => {
+  const vault = document.getElementById("obVault").value.trim();
+  const folders = {};
+  obFolders.querySelectorAll(".ob-folder").forEach(inp => {
+    folders[inp.dataset.sec] = inp.value.trim();
+  });
+  saveObSettings({ vault, folders });
+  closeObModal();
+  toast("已保存各版块落库目录（已写入本机与链接参数，刷新/换域名后仍可恢复）");
+});
+
+/* ---------- 收藏登记表（防重复落库 + 收藏夹） ---------- */
+const FAV_KEY = "aiDailyFavorites";
+function getFavs() { return readJsonStore(FAV_KEY, []); }
+function saveFavs(list) { writeStore(FAV_KEY, JSON.stringify(list)); updateFavCount(); }
+function favIdFor(secId, idx) { return secId + "#" + idx; }
+function hasFav(id) { return getFavs().some(f => f.id === id); }
+function findFav(id) { return getFavs().find(f => f.id === id); }
+function markFaved(btn) {
+  if (!btn) return;
+  btn.classList.add("faved");
+  btn.textContent = "★";
+  btn.disabled = true;
+  btn.title = "已收藏（重复点击不会重复落库）";
+}
+function unmarkFaved(btn) {
+  if (!btn) return;
+  btn.classList.remove("faved");
+  btn.textContent = "☆";
+  btn.disabled = false;
+  btn.title = "收藏到 Obsidian";
+}
+function updateFavCount() {
+  const n = getFavs().length;
+  document.getElementById("favCount").textContent = n;
+  document.getElementById("favListCount").textContent = n;
+}
+function buttonFor(secId, idx) {
+  if (secId === "sec-github") return document.querySelector('.gh-fav[data-gh="' + idx + '"]');
+  return document.querySelector('.fav[data-sec="' + secId + '"][data-idx="' + idx + '"]');
+}
+function fmtTs(ts) {
+  return new Date(ts).toLocaleString("zh-CN", { hour12: false, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+}
+
+/* ---------- 收藏确认弹窗（单条可改目录） ---------- */
+const favModal = document.getElementById("favModal");
+let pendingFav = null;
+
+function openFavModal(item, tag, secId, btn, id) {
+  pendingFav = { item, tag, secId, btn, id };
+  document.getElementById("favTitle").textContent = "收藏到 Obsidian";
+  document.getElementById("favTip").textContent = "版块「" + tag + "」· " + item.title;
+  document.getElementById("favVault").value = ""; /* 默认留空 → 写入最近打开的库，避免 vault 名不匹配报错 */
+  document.getElementById("favFolder").value = folderFor(secId);
+  /* 重置 AI 面板 */
+  aiShowFields(false);
+  const mode = (getAiSettings().mode || "workbuddy");
+  if (mode === "workbuddy") {
+    /* WorkBuddy 代提炼模式：不消耗任何 token、不落库，收藏即记账 */
+    document.getElementById("favTitle").textContent = "加入待提炼清单";
+    document.getElementById("favConfirm").textContent = "📥 加入待提炼清单";
+    aiSetStatus("WorkBuddy 模式：点击下方按钮只记账、不写入 Obsidian。之后到「★ 收藏夹 → 导出待提炼清单」发给 WorkBuddy 提炼落库。", "");
+    aiShowFields(false);
+  } else {
+    document.getElementById("favConfirm").textContent = "☆ 收藏";
+    aiSetStatus(aiConfigured() ? '<span class="spinner"></span>本地模式：已配置 DeepSeek，自动开始提炼…' : "本地模式但未配置 DeepSeek，点「⚙ AI 设置」填 Key，或直接用卡片原摘要收藏", aiConfigured() ? "" : "err");
+  }
+  favModal.classList.add("open");
+  updateFavPreview();
+  ["favVault", "favFolder"].forEach(id2 => {
+    document.getElementById(id2).addEventListener("input", updateFavPreview);
+  });
+  if (mode !== "workbuddy" && aiConfigured()) runAiSummarize();
+}
+
+function updateFavPreview() {
+  if (!pendingFav) return;
+  const vault = document.getElementById("favVault").value.trim();
+  const folder = document.getElementById("favFolder").value.trim().replace(/^\/+|\/+$/g, "") || folderFor(pendingFav.secId);
+  const safe = pendingFav.item.title.replace(/[\\/:*?"<>|#\^\[\]“”‘’]/g, " ").replace(/\s+/g, " ").trim().slice(0, 60);
+  const filePath = (folder ? folder + "/" : "") + safe;
+  const warn = document.getElementById("favVaultWarn");
+  if (vault && /[\\/]/.test(vault)) {
+    warn.textContent = "⚠ Vault 名含斜杠「" + vault + "」，Obsidian 会按字面查找该名称的库并报错。请把库名与目录分开填写：vault 只填库管理中显示的精确名，目录放到下方「落库目录」。";
+    warn.hidden = false;
+  } else if (vault && /\s/.test(vault)) {
+    warn.textContent = "⚠ Vault 名包含空格，请确认与 Obsidian 中显示的完全一致。";
+    warn.hidden = false;
+  } else {
+    warn.hidden = true;
+  }
+  const head = vault ? vault + "/" : "（最近打开的库）/";
+  document.getElementById("favPreview").innerHTML =
+    "路径预览：<b>obsidian://new?file=" + escapeHtml(head + filePath) + "</b>" +
+    (vault ? " · vault=<b>" + escapeHtml(vault) + "</b>" : " · 使用最近库");
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]);
+}
+function closeFavModal() { favModal.classList.remove("open"); pendingFav = null; }
+
+document.getElementById("favCancel").addEventListener("click", closeFavModal);
+/* 点遮罩不再关闭弹窗，避免误触丢失输入；请用弹窗内按钮关闭 */
+document.getElementById("favConfirm").addEventListener("click", async () => {
+  if (!pendingFav) return;
+  const { item, tag, secId, btn, id } = pendingFav;
+  /* 防重复：同一条已收藏过就不再重复记账/落库 */
+  if (hasFav(id)) {
+    const old = findFav(id);
+    closeFavModal();
+    markFaved(btn);
+    toast("该条已在待提炼清单中（" + (old ? old.folder : "已记录") + "），未重复添加");
+    return;
+  }
+  const rawVault = document.getElementById("favVault").value.trim();
+  const folder = document.getElementById("favFolder").value.trim().replace(/^\/+|\/+$/g, "") || folderFor(secId);
+  /* 防止 vault 含斜杠触发 Obsidian「Vault not found」 */
+  const vault = rawVault && /[\\/]/.test(rawVault) ? rawVault.split(/[\\/]/)[0] : rawVault;
+  if (rawVault && vault !== rawVault) {
+    document.getElementById("favVault").value = vault;
+    updateFavPreview();
+    toast("已自动把 vault 名截断到「" + vault + "」，多余部分请填入下方落库目录");
+    return; /* 让用户先确认再点收藏 */
+  }
+  /* 登记收藏记录（含 AI 提炼快照） */
+  const favs = getFavs();
+  favs.unshift({
+    id, title: item.title, tag, secId,
+    folder, vault: vault || "", url: item.url, source: item.source || "",
+    why: item.why, gist: item.gist, usable: item.usable, howto: item.howto,
+    body: item.body, source_title: item.source_title, author: item.author,
+    created: item.created, tags: item.tags,
+    ts: Date.now()
+  });
+  saveFavs(favs);
+  markFaved(btn);
+  /* WorkBuddy 模式：只记账，不写入 Obsidian、不复制剪贴板（零 token、零落库） */
+  if ((getAiSettings().mode || "workbuddy") === "workbuddy") {
+    closeFavModal();
+    toast("已加入待提炼清单（WorkBuddy 模式，未落库）。到「★ 收藏夹 → 导出待提炼清单」发给 WorkBuddy 即可");
+    return;
+  }
+  closeFavModal();
+  const md = buildNote(item, tag);
+  try { await navigator.clipboard.writeText(md); } catch (e) { /* 剪贴板不可用时仅靠 URI */ }
+  /* 文件名：优先用 AI 编辑过的 title，否则用卡片原标题 */
+  const safeTitle = (item.title || item.title).replace(/[\\/:*?"<>|#\^\[\]“”‘’]/g, " ").replace(/\s+/g, " ").trim().slice(0, 60);
+  const filePath = folder + "/" + safeTitle;
+  let uri = "obsidian://new?file=" + encodeURIComponent(filePath) + "&content=" + encodeURIComponent(md);
+  if (vault) uri += "&vault=" + encodeURIComponent(vault);
+  toast("已收藏并复制笔记到剪贴板" + (vault ? " · vault=" + vault : " · 最近打开的库") + " · 正在打开 Obsidian…");
+  setTimeout(() => window.location.href = uri, 50);
+});
+
+/* ---------- 收藏夹面板（查看 / 搜索 / 复制 / 删除） ---------- */
+const favListModal = document.getElementById("favListModal");
+const favListEl = document.getElementById("favList");
+const favSearch = document.getElementById("favSearch");
+
+function openFavList() {
+  favSearch.value = "";
+  renderFavList();
+  favListModal.classList.add("open");
+}
+function closeFavList() { favListModal.classList.remove("open"); }
+function updateFavCount() {
+  const all = getFavs();
+  const pending = all.filter(f => !f.exported).length;
+  document.getElementById("favCount").textContent = pending + "/" + all.length;
+  document.getElementById("favListCount").textContent = all.length + "（待提炼 " + pending + "）";
+}
+
+function renderFavList() {
+  const kw = (favSearch.value || "").trim().toLowerCase();
+  const favs = getFavs().filter(f =>
+    !kw || (f.title + " " + f.tag + " " + f.folder + " " + (f.vault || "")).toLowerCase().includes(kw)
+  );
+  if (!favs.length) {
+    favListEl.innerHTML = '<div class="fav-empty">' + (kw ? "没有匹配「" + escapeHtml(kw) + "」的收藏" : "还没有收藏任何条目，点击卡片右上角 ☆ 收藏") + "</div>";
+    return;
+  }
+  favListEl.innerHTML = favs.map(f => {
+    const loc = (f.vault ? f.vault + " / " : "最近库 / ") + f.folder;
+    const doneBadge = f.exported ? '<span class="fi-badge done">✓ 已提炼</span>' : '<span class="fi-badge todo">待提炼</span>';
+    return `
+      <div class="fav-item${f.exported ? " is-done" : ""}">
+        <div class="fi-top">
+          <span class="fi-title">${escapeHtml(f.title)}</span>
+          <span class="fi-tag">${escapeHtml(f.tag)}</span>
+          ${doneBadge}
+        </div>
+        <div class="fi-meta">落库：${escapeHtml(loc)} · 收藏于 ${fmtTs(f.ts)}</div>
+        <div class="fi-actions">
+          <button type="button" data-act="copy" data-id="${f.id}">复制笔记</button>
+          <a href="${f.url}" target="_blank" rel="noopener noreferrer" style="font-size:12px;padding:3px 10px;border:1px solid var(--border);border-radius:7px;text-decoration:none;color:inherit;">查看原文</a>
+          ${f.exported ? `<button type="button" data-act="reopen" data-id="${f.id}">↩ 标回待提炼</button>` : `<button type="button" data-act="done" data-id="${f.id}">✓ 标记已提炼</button>`}
+          <button type="button" class="del" data-act="del" data-id="${f.id}">删除记录</button>
+        </div>
+      </div>`;
+  }).join("");
+}
+favListEl.addEventListener("click", async e => {
+  const btn = e.target.closest("button[data-act]");
+  if (!btn) return;
+  const f = findFav(btn.dataset.id);
+  if (!f) return;
+  if (btn.dataset.act === "del") {
+    const favs = getFavs().filter(x => x.id !== f.id);
+    saveFavs(favs);
+    unmarkFaved(buttonFor(f.secId, Number(f.id.split("#")[1])));
+    renderFavList();
+    toast("已删除收藏记录（Obsidian 中的笔记不受影响）");
+  } else if (btn.dataset.act === "copy") {
+    const md = buildNote(f, f.tag);
+    try { await navigator.clipboard.writeText(md); toast("笔记已复制到剪贴板"); }
+    catch (err) { toast("复制失败，请手动复制"); }
+  } else if (btn.dataset.act === "done") {
+    const favs = getFavs();
+    const idx = favs.findIndex(x => x.id === f.id);
+    if (idx >= 0) { favs[idx].exported = true; saveFavs(favs); }
+    renderFavList();
+    toast("已归档：下次导出不再带这条");
+  } else if (btn.dataset.act === "reopen") {
+    const favs = getFavs();
+    const idx = favs.findIndex(x => x.id === f.id);
+    if (idx >= 0) { delete favs[idx].exported; saveFavs(favs); }
+    renderFavList();
+    toast("已标回待提炼，下次导出将包含");
+  }
+});
+document.getElementById("favListClose").addEventListener("click", closeFavList);
+/* 点遮罩不再关闭弹窗，避免误触丢失输入；请用弹窗内按钮关闭 */
+favSearch.addEventListener("input", renderFavList);
+document.getElementById("favListBtn").addEventListener("click", openFavList);
+
+/* 导出待提炼清单（仅未提炼）：复制 JSON 到剪贴板，粘贴给 WorkBuddy 即可 */
+function buildExportList(favs) {
+  return favs.map(f => ({
+    id: f.id, title: f.title, url: f.url, source: f.source || "",
+    tag: f.tag, folder: f.folder, vault: f.vault || ""
+  }));
+}
+function markExported(ids) {
+  const set = new Set(ids);
+  const favs = getFavs();
+  let changed = false;
+  for (const f of favs) if (set.has(f.id) && !f.exported) { f.exported = true; changed = true; }
+  if (changed) saveFavs(favs);
+}
+document.getElementById("favExport").addEventListener("click", async () => {
+  const pending = getFavs().filter(f => !f.exported);
+  if (!pending.length) { toast("没有待提炼的条目（新条目收藏后会自动出现）"); return; }
+  const json = JSON.stringify(buildExportList(pending), null, 2);
+  try {
+    await navigator.clipboard.writeText(json);
+    markExported(pending.map(f => f.id));
+    renderFavList();
+    toast("已复制 " + pending.length + " 条待提炼清单（已自动标记，重复导出不会重复带这些条）");
+  } catch (e) { toast("复制失败：浏览器剪贴板不可用，请手动选择文本复制"); }
+});
+document.getElementById("favExportAll").addEventListener("click", async () => {
+  const all = getFavs();
+  if (!all.length) { toast("还没有收藏记录可导出"); return; }
+  const json = JSON.stringify(buildExportList(all), null, 2);
+  try { await navigator.clipboard.writeText(json); toast("已全量复制 " + all.length + " 条（含历史已提炼的条目，不做标记）"); }
+  catch (e) { toast("复制失败：浏览器剪贴板不可用，请手动选择文本复制"); }
+});
+
+/* ---------- 绑定收藏按钮 ---------- */
+document.querySelectorAll(".fav[data-sec]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const sec = SECTIONS.find(s => s.id === btn.dataset.sec);
+    const item = sec.items[Number(btn.dataset.idx)];
+    openFavModal({ title: item.title, source: item.source, url: item.url, why: item.why, gist: item.gist, usable: item.usable, howto: item.howto }, sec.label, sec.id, btn, favIdFor(sec.id, Number(btn.dataset.idx)));
+  });
+});
+document.querySelectorAll(".gh-fav").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const g = GITHUB_WEEKLY[Number(btn.dataset.gh)];
+    openFavModal({ title: g.repo + "（GitHub 周升星榜）", source: "GitHub Trending", url: "https://github.com/" + g.repo, why: g.why, gist: g.gist, usable: g.usable, howto: g.howto }, "GitHub升星榜", "sec-github", btn, favIdFor("sec-github", Number(btn.dataset.gh)));
+  });
+});
+
+/* ---------- 初始化：恢复已收藏状态 ---------- */
+updateFavCount();
+getFavs().forEach(f => {
+  const parts = f.id.split("#");
+  if (parts.length === 2) markFaved(buttonFor(parts[0], Number(parts[1])));
+});
+</script>
+</body>
+</html>
