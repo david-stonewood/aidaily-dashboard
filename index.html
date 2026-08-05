@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 日报 · 2026-08-04</title>
+<title>AI 日报 · 2026-08-05</title>
 <style>
   :root {
     --bg: #f6f7fb;
@@ -343,23 +343,23 @@
 
   <header class="hero">
     <div class="kicker">AI HOT · 每日精选</div>
-    <h1>AI 晨报 · 2026 年 8 月 4 日（周二）</h1>
-    <div class="sub">数据窗口：北京时间 8 月 3 日 08:00 — 8 月 4 日 08:00 · 日报于今天早晨 08:00 生成 · 每条附「为什么选 / 摘要 / 能不能用 / 怎么用」四问提炼</div>
-    <div class="total">今日共收录 <strong>21</strong> 条精选动态 + GitHub 一周升星榜 <strong>10</strong> 条</div>
+    <h1>AI 晨报 · 2026 年 8 月 5 日（周三）</h1>
+    <div class="sub">数据窗口：北京时间 8 月 4 日 08:00 — 8 月 5 日 08:00 · 日报于今天早晨 08:00 生成 · 每条附「为什么选 / 摘要 / 能不能用 / 怎么用」四问提炼</div>
+    <div class="total">今日共收录 <strong>29</strong> 条精选动态 + GitHub 一周升星榜 <strong>10</strong> 条</div>
     <div class="stats">
-      <div class="stat"><div class="n">2</div><div class="l">AI模型</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">AI模型</div></div>
       <div class="stat"><div class="n">8</div><div class="l">AI产品</div></div>
-      <div class="stat"><div class="n">2</div><div class="l">行业动态</div></div>
-      <div class="stat"><div class="n">1</div><div class="l">论文研究</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">行业动态</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">论文研究</div></div>
       <div class="stat"><div class="n">8</div><div class="l">技巧与实践</div></div>
     </div>
   </header>
 
   <nav class="toc">
-    <a href="#sec-models">AI模型<span class="cnt">2</span></a>
+    <a href="#sec-models">AI模型<span class="cnt">6</span></a>
     <a href="#sec-products">AI产品<span class="cnt">8</span></a>
-    <a href="#sec-industry">行业动态<span class="cnt">2</span></a>
-    <a href="#sec-paper">论文研究<span class="cnt">1</span></a>
+    <a href="#sec-industry">行业动态<span class="cnt">7</span></a>
+    <a href="#sec-paper">论文研究<span class="cnt">0</span></a>
     <a href="#sec-tip">技巧与实践<span class="cnt">8</span></a>
     <a href="#sec-github">GitHub升星<span class="cnt">10</span></a>
     <button class="ob-settings-btn" id="aiSettingsBtn" type="button">🤖 AI 提炼设置</button>
@@ -370,8 +370,8 @@
   <main id="app"></main>
 
   <footer>
-    <span>本期日报共 <strong>21</strong> 条（AI模型 2 · AI产品 8 · 行业动态 2 · 论文研究 1 · 技巧与实践 8）+ GitHub升星 10 条</span>
-    <span>数据源：<a href="https://aihot.virxact.com/daily/2026-08-04" target="_blank" rel="noopener noreferrer">AI HOT 日报 · 2026-08-04</a>；GitHub升星来自 <a href="https://github.com/trending?since=weekly" target="_blank" rel="noopener noreferrer">GitHub Trending（周榜）</a>，今天早晨 09:38（北京时间）抓取</span>
+    <span>本期日报共 <strong>29</strong> 条（AI模型 6 · AI产品 8 · 行业动态 7 · 论文研究 0 · 技巧与实践 8）+ GitHub升星 10 条</span>
+    <span>数据源：<a href="https://aihot.virxact.com/daily/2026-08-05" target="_blank" rel="noopener noreferrer">AI HOT 日报 · 2026-08-05</a>；GitHub升星来自 <a href="https://github.com/trending?since=weekly" target="_blank" rel="noopener noreferrer">GitHub Trending（周榜）</a>，今天早晨 10:40（北京时间）抓取</span>
     <span>摘要与四问提炼由 AI 整理；收藏功能通过 obsidian:// 协议写入本地 Obsidian 库</span>
   </footer>
 </div>
@@ -484,212 +484,9 @@
 <div class="toast" id="toast"></div>
 
 <script>
-const SECTIONS = [
-  {
-    id: "sec-models", label: "AI模型", color: "var(--c-models)",
-    items: [
-      { title: "Qwen3.8-Max 发布：开源最强编码与协作模型，2.4T 参数",
-        source: "Qwen 官方博客", url: "https://qwen.ai/blog?id=qwen3.8",
-        why: "AI 新技术 / AI 开发：开源阵营的旗舰编码模型，有机会平替闭源 API 成为开发主力，直接降低智能体使用成本。",
-        gist: "Qwen 家族迄今最强模型，2.4T 参数（95B 激活的 MoE），主打编码与多智能体协作，首次开源 Qwen-Max 级权重，开放权重下周放出。",
-        usable: "能。权重下周放出后可私有化部署，也可先通过官方 API 试用；注意超大模型的推理算力门槛。",
-        howto: "编码场景先走 API 接入 IDE/CLI 智能体做主力模型；有算力的团队可私有化部署做企业内网编码助手，源码不出域。" },
-      { title: "商汤发布 SenseNova U1.5-Lite-Preview 开源模型",
-        source: "X · 商汤 SenseTime", url: "https://x.com/SenseTime_AI/status/2084288424236782073",
-        why: "AI 新技术：8B 轻量级的原生统一多模态模型，端侧与低成本图像生成/编辑场景的新选择。",
-        gist: "基于 NEO-Unify 架构的统一多模态模型，仅 8B-MoT 参数即可达到商业闭源模型的生成与编辑质量，已开源。",
-        usable: "能，权重开源可下载；轻量级意味着单卡即可运行。",
-        howto: "适合搭建企业内部图像生成/编辑流水线（电商图、海报初稿），私有化部署替代按量付费的闭源生图 API。" }
-    ]
-  },
-  {
-    id: "sec-products", label: "AI产品", color: "var(--c-products)",
-    items: [
-      { title: "Cloudflare 推出 Billable Usage API",
-        source: "Cloudflare Blog", url: "https://blog.cloudflare.com/billable-usage-api",
-        why: "AI 企业信息化：AI/云成本精细化是落地刚需，程序化成本可见性让部门级分摊与预算管控成为可能。",
-        gist: "单一端点按产品与计费周期返回用量与成本，覆盖 Workers、R2、D1、Workers AI、Vectorize、Images、Stream。",
-        usable: "能，自助账户即可调用；仅限 Cloudflare 体系内的用量。",
-        howto: "接入内部 FinOps 看板，按项目维度拉取 Workers AI 推理成本，配置预算阈值告警。" },
-      { title: "OpenRouter 推出 Ori Eval 简化评估流程",
-        source: "X · OpenRouter", url: "https://x.com/OpenRouter/status/2084301100078027143",
-        why: "AI 开发：“没有最好的模型，只有最适合任务的模型”——评估基建是模型选型与质量回归的核心工具。",
-        gist: "利用 OpenRouter 的 API 对代码库中的任务自动跑评估，一条命令即可生成评估环境，大幅降低编写 eval 的门槛。",
-        usable: "能，一条 curl 命令即可安装体验；评估任务需自行定义。",
-        howto: "为自有提示词/智能体建立回归评估集，每当模型换代（如 Qwen3.8-Max 放出）先量化对比再决定是否切换。" },
-      { title: "Cloudflare 推出 @cloudflare/computer 预览版",
-        source: "Cloudflare Blog", url: "https://blog.cloudflare.com/cloudflare-computer",
-        why: "AI 新技术 / AI 新物种：给智能体配一台“电脑”（虚拟文件系统 + 多执行环境）是 Agent 基础设施的最新热点。",
-        gist: "开源智能体运行时，为每个智能体提供虚拟文件系统，支持在 isolate、容器沙箱或浏览器中执行代码。",
-        usable: "早期预览版，适合试玩与架构预研，暂不建议上生产。",
-        howto: "用于构建代码执行类 Agent（数据分析、文件处理），以隔离环境安全执行不可信代码。" },
-      { title: "GPT-Live 实时音频新架构发布",
-        source: "X · Greg Brockman", url: "https://x.com/gdb/status/2084405421041963356",
-        why: "AI 新技术：全双工“边听边说”是语音交互的下一代形态，直接影响语音客服/助手类产品设计。",
-        gist: "OpenAI 从客户端到模型重建语音栈，音频持续流动，深入推理与工具调用不再打断对话，目标是在 ChatGPT 规模下做到自然。",
-        usable: "逐步开放中，需关注 API 可用性与定价。",
-        howto: "语音客服、语音助手团队跟进其 API 开放节奏，提前规划全双工语音交互的改造方案。" },
-      { title: "微软开源 Orchard 智能体训练框架",
-        source: "X · Microsoft Research", url: "https://x.com/MSFTResearch/status/2084364547142418722",
-        why: "AI 新技能 / AI 开发：智能体训练框架开源，让小模型经后训练也能胜任 Agent 任务，是降本的重要路径。",
-        gist: "微软面向研究社区的开源框架，跨任务类型训练和评估 AI 智能体，通过复用同一套基础设施让小模型也有强劲表现。",
-        usable: "能，已开源；偏研究向，需要一定训练工程能力。",
-        howto: "研究团队可用它对垂直场景 Agent（客服、运维、审核）做后训练，以小模型达到可用性能，降低推理成本。" },
-      { title: "Cloudflare Workers 与 Containers 支持入站 TCP 和 gRPC",
-        source: "Cloudflare Blog", url: "https://blog.cloudflare.com/grpc-workers",
-        why: "AI 开发：Serverless 支持长连接与 gRPC，把 Agent 服务部署到边缘的限制又少一层。",
-        gist: "新增 connect(socket) 处理器，可直接接受 Spectrum 提供的入站 TCP 套接字，并转发至 Durable Objects 或 Containers，实现全双工通信。",
-        usable: "能，已正式发布可用。",
-        howto: "将需要长连接的 Agent 服务（MCP server、实时推送通道）边缘化部署，就近服务用户降低延迟。" },
-      { title: "Data Commons on Spanner Graph 正式可用",
-        source: "Google Cloud 博客", url: "https://cloud.google.com/blog/products/databases/unify-public-and-private-data-with-data-commons-on-spanner-graph",
-        why: "AI 知识管理：把私有知识与公共数据集统一到一张知识图谱，是企业知识库 + RAG 的新底座选项。",
-        gist: "Google Cloud 宣布正式可用，并预览新版 Data Commons Platform，支持私有知识与公共数据集知识图谱的统一查询。",
-        usable: "能（GCP 用户）；需评估数据上云的合规性。",
-        howto: "企业知识图谱项目可试点：将内部实体数据与公共统计/百科数据关联查询，为 RAG 提供结构化增强检索。" },
-      { title: "Claude Code 连接器可复用至 Artifacts",
-        source: "X · Thariq", url: "https://x.com/trq212/status/2084387303959740449",
-        why: "AI 生产力：连接器一次配置、多处复用，是智能体打通个人工作流（邮件/日历/IM）的关键一环。",
-        gist: "官方工程师确认：已连接的 Claude 连接器（Gmail、日历、Slack 等）可在 Claude Code 中使用，包括 Artifacts 内部。",
-        usable: "能，即日可用，无需额外配置。",
-        howto: "在 Claude 中连好办公套件后，用 Claude Code 直接编写自动化脚本批量处理邮件与日程，用 Artifacts 做结果可视化。" }
-    ]
-  },
-  {
-    id: "sec-industry", label: "行业动态", color: "var(--c-industry)",
-    items: [
-      { title: "欧盟《人工智能法案》透明度规则生效",
-        source: "The Verge", url: "https://www.theverge.com/ai-artificial-intelligence/974571/eu-ai-act-transparency-labels-rules-deepfakes",
-        why: "AI 企业信息化 / 合规：出海产品的强制合规项，直接影响 AI 功能的交互与内容标识设计。",
-        gist: "8 月 2 日起生效：必须披露用户在与 AI 互动，并为合成音视频/文本添加机器可读标记；违规最高罚 1500 万欧元或全球年营业额 3%，存量模型有 4 个月宽限期。",
-        usable: "直接适用于有欧盟用户的业务；可选的 AI 披露标签体系已发布。",
-        howto: "出海产品尽快上线 AI 交互披露文案与生成内容水印/元数据标记，并推动法务完成合规差距评估。" },
-      { title: "Databricks 完成对 Panther 的收购",
-        source: "Databricks Blog", url: "https://www.databricks.com/blog/databricks-completes-acquisition-panther-accelerating-security-lakehouse-era",
-        why: "AI 企业信息化：数据平台与安全运营合并，“安全湖仓”代表企业数据基建的整合趋势。",
-        gist: "Databricks 正式完成收购安全数据平台 Panther，将安全分析能力整合进统一数据架构，支撑安全运营与威胁检测负载；交易条款未披露。",
-        usable: "间接价值——主要影响安全产品选型判断。",
-        howto: "安全团队做 SIEM 选型时关注湖仓一体方案，评估能否借此消除安全数据孤岛。" }
-    ]
-  },
-  {
-    id: "sec-paper", label: "论文研究", color: "var(--c-paper)",
-    items: [
-      { title: "多模态大语言模型对齐的全面研究（Apple）",
-        source: "Apple ML Research", url: "https://machinelearning.apple.com/research/alignment-multimodal-llms",
-        why: "AI 新技术：多模态偏好对齐的系统综述 + 新数据构建方法，做多模态模型微调时的实用参考手册。",
-        gist: "Apple 团队将多模态偏好对齐算法分为离线（DPO）与在线（online-DPO）两类并系统对比，发现两者结合可在特定场景提升性能；提出无需额外标注或外部模型的偏好数据构建方法 BDHS（偏差驱动幻觉采样），多项基准上与既有对齐方法表现相当。",
-        usable: "能——方法论与数据构造思路可直接复现；属于研究向，需要训练工程能力配合。",
-        howto: "微调多模态模型时：用 BDHS 思路低成本构造偏好对（利用模型偏差诱发幻觉样本作为负例），采用“离线 DPO + 在线 DPO”两阶段训练流程。" }
-    ]
-  },
-  {
-    id: "sec-tip", label: "技巧与实践", color: "var(--c-tip)",
-    items: [
-      { title: "AirLLM：单块 4GB GPU 运行 70B 模型推理",
-        source: "Hacker News 热门", url: "https://github.com/lyogavin/airllm",
-        why: "AI 生产力：4GB 显存跑 70B，是个人与小团队低成本私有化大模型的代表方案，直接降低试错门槛。",
-        gist: "AirLLM 支持在单块 4GB 显存 GPU 上推理 70B 参数大模型，无需多卡配置；项目开源，HN 热度 103 点。",
-        usable: "能，但推理速度较慢，适合离线批处理而非实时交互场景。",
-        howto: "在本地跑大模型做隐私文档批处理（摘要、抽取、清洗），零 API 成本且数据不出本机。" },
-      { title: "Palantir CEO Alex Karp 称 AI 行业“马克思主义”",
-        source: "TechCrunch", url: "https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist",
-        why: "AI 商业模式创新：“模型无关 + 企业掌控数据主权”是 toB AI 差异化定位的标杆样本。",
-        gist: "Palantir Q2 营收 19 亿美元（同比 +93%）、利润 11 亿美元；Karp 在股东信中批评前沿实验室对企业不可信，主张 Palantir 提供模型无关的 AI 软件，让企业掌控自身数据与 AI“废气”（提示词、编排、上下文）。",
-        usable: "观点参考，不可直接操作。",
-        howto: "toB AI 产品定位可借鉴：不与单一模型厂绑定，主打“企业数据主权 + 编排层”的价值主张。" },
-      { title: "Kimi Work 幻灯片制作教程发布",
-        source: "X · Kimi.ai", url: "https://x.com/Kimi_Moonshot/status/2084245860339298423",
-        why: "AI 生产力：AI 全流程做 PPT 是办公提效最直观的场景之一，官方教程降低上手成本。",
-        gist: "Kimi Slides 覆盖从结构研究到设计的全流程：K3 驱动内容结构，图表与 SmartArt 设计连贯，成品可编辑、可直接下载；此为官方教程第一期。",
-        usable: "能，即学即用。",
-        howto: "按教程用 Kimi Work 生成周报/方案 PPT 初稿，人工精修内容与版式，压缩制作时间。" },
-      { title: "Claude Code 连接器可复用至 Artifacts（技巧视角）",
-        source: "X · Thariq", url: "https://x.com/trq212/status/2084387303959740449",
-        why: "AI 生产力：连接器是被低估的能力放大器——同样能力出现在产品版块，此处从用法角度再提炼。",
-        gist: "官方工程师提醒：很多人没意识到，连接好的 Gmail、日历、Slack 等连接器在 Claude Code 与 Artifacts 中都能直接用。",
-        usable: "能，零额外配置。",
-        howto: "盘点已连接的连接器，把“查邮件 → 汇总 → 建日程”这类重复办公流交给 Claude Code 一键自动化。" },
-      { title: "EA 首席战略官谈生成式 AI 如何进入实时游戏世界",
-        source: "Runway News", url: "https://runwayml.com/news/company-news/electronic-arts-ai-summit-2026",
-        why: "AI 新物种 / 商业模式：“行为正确”比“看起来真实”更重要——神经符号混合架构对实时交互类产品有普适启发。",
-        gist: "EA 首席战略官 Mihir Vaidya：游戏面临 60fps、数千玩家同步、低延迟的严苛约束，不能只追求“看起来真实”而必须“行为正确”；主张神经符号架构保留确定性与可控性，称“控制是下一个前沿”；EA 将 AI 影响分为效率、扩展、转型三层，《模拟人生》已服务超 5 亿玩家。",
-        usable: "观点与架构思路参考。",
-        howto: "做实时交互类 AI 产品（陪伴、NPC、实时客服）时评估“生成 + 规则”的混合架构，规避纯生成路线的不可控风险。" },
-      { title: "Google Agent Skills 幕后：如何构建、测试与规模化",
-        source: "Google AI · DEV", url: "https://dev.to/googleai/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills-1am5",
-        why: "AI 新技能 / AI 知识管理：技能库的工程化治理（标准目录 + CI/CD + 持续评估）是团队沉淀 AI 技能的成熟范本。",
-        gist: "Google 开源技能库 GitHub 超 1.5 万星；每个技能须通过标准化目录结构、CI/CD 流水线（linter、链接检查、AI 辅助清单）以及提交时与每周的持续评估，并优先引用远程 MCP 工具。",
-        usable: "能，整套治理流程可直接照搬。",
-        howto: "团队自建 skill 库时复刻其流水线：模板目录 + PR 检查 + 定期评估，防止技能随模型迭代而腐化。" },
-      { title: "Gary Marcus：Anthropic 数学家 24 小时复现 OpenAI 半数结果",
-        source: "Gary Marcus 专栏", url: "https://garymarcus.substack.com/p/two-critical-updates-re-astra-and",
-        why: "AI 新技术：对厂商“突破性”宣传保持独立验证意识——这是评估 AI 进展的重要方法论。",
-        gist: "Gary Marcus 称 OpenAI 的 Astra 可能并非宣传的突破：Anthropic 数学家 Levent Alpöge 用已公开的 Fable 模型在 24 小时内复现了其半数结果。",
-        usable: "观点参考。",
-        howto: "评估新模型宣传时，先用公开模型建立复现基线再做投入决策，避免被营销节奏带着走。" },
-      { title: "Paramount CTO：AI 属史上最伟大技术趋势，但“iPhone 时刻”未到",
-        source: "Runway News", url: "https://runwayml.com/news/customers/paramount-nyc-summit-2026",
-        why: "AI 商业模式创新 / 企业信息化：传统内容巨头的 AI 采用策略——以业务成果度量、警惕 5–10 年窗口期。",
-        gist: "Phil Wiser 认为 AI 可跻身人类史上最伟大技术趋势前五，影响堪比火的使用；主张等待依赖条件成熟、以“aha 时刻”引导采用；Paramount 两年前已通过 Runway 向全员开放 AI 工具，以业务成果而非 token 消耗量衡量成效。",
-        usable: "观点参考。",
-        howto: "企业推进 AI 时设定业务成果指标（节省工时、增收），以“全员可用工具 + 标杆案例”驱动采用，而非考核使用量。" }
-    ]
-  }
-];
+const SECTIONS = [{"id": "sec-models", "label": "AI模型", "color": "var(--c-models)", "items": [{"title": "NVIDIA Alpamayo 2 Super 开放商用，面向 Robotaxi 与自动驾驶的前沿开源模型", "source": "NVIDIA Blog（RSS）", "url": "https://blogs.nvidia.com/blog/alpamayo-2-super-open-model-now-available", "why": "AI 新技术 / AI 开发：NVIDIA Alpamayo 2 Super 开放商用，面向 Robotaxi 与自动驾驶的前沿开源模型", "gist": "NVIDIA Alpamayo 2 Super 现已开放商用，基于 Cosmos 3 Super Reasoner 构建，采用强化学习后训练，支持轨迹预测、因果链推理、元动作、自动标注及视觉问答等多任务输出。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}, {"title": "商汤 SenseNova U1 开源：统一推理与图像生成", "source": "X：商汤 SenseTime (@SenseTime_AI)", "url": "https://x.com/SenseTime_AI/status/2084667189479837741", "why": "AI 新技术 / AI 开发：商汤 SenseNova U1 开源：统一推理与图像生成", "gist": "商汤发布开源模型 SenseNova U1，可在统一流程中同时进行推理与图像生成。其信息图模式可将单条提示词转为结构化幻灯片，交错模式则逐步生成图文内容，如演示六步画龙教程。模型已上线 SenseNova Studio、HuggingFace 及 GitHub。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}, {"title": "OpenRouter 上线 FLUX 3 Video 统一多模态模型", "source": "X：OpenRouter (@OpenRouter)", "url": "https://x.com/OpenRouter/status/2084699413898027064", "why": "AI 新技术 / AI 开发：OpenRouter 上线 FLUX 3 Video 统一多模态模型", "gist": "@bfl_ai 的 FLUX 3 Video 现已在 OpenRouter 上向所有人开放。 一个统一的视频、音频、图像和动作预测多模态模型家族。严肃、有趣、创意、真实、电影感，随你所需。基于统一架构联合训练。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}, {"title": "蚂蚁百灵发布Ling-3.0-flash开源权重", "source": "X：蚂蚁百灵 (@AntLingAGI)", "url": "https://x.com/AntLingAGI/status/2084656533489754475", "why": "AI 新技术 / AI 开发：蚂蚁百灵发布Ling-3.0-flash开源权重", "gist": "今天，我们发布了 Ling-3.0-flash 的开源权重。🎉 官方 BF16 和 FP8 量化版本现已可用，您可以根据自己的硬件、性能要求和部署需求选择最合适的版本。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}, {"title": "腾讯混元发布 Hy ASR 3.0 preview：真正懂上下文的语音识别", "source": "公众号：腾讯混元", "url": "https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498223&idx=1&sn=ae271ec2c72723393d3e1d8074a33205", "why": "AI 新技术 / AI 开发：腾讯混元发布 Hy ASR 3.0 preview：真正懂上下文的语音识别", "gist": "腾讯混元发布新一代语音识别模型 Hy ASR 3.0 preview，基于大语言模型 Hy3 与 MoE 架构，融合高精度识别与语义理解。其在开源评测集中中文普通话 WER 3.34%、英语 WER 2.62%、粤语 WER 3.12%，并支持上下文纠错、热词注入及高噪耳语等场景。该模型已上线腾讯云 API，元宝 App 首发并免费开放。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}, {"title": "FLUX 3 Video, Part 1: Generation FLUX 3 Video, Part 1 August 4, 2026 Read more", "source": "Black Forest Labs：Blog（网页）", "url": "https://bfl.ai/blog/flux-3-video", "why": "AI 新技术 / AI 开发：FLUX 3 Video, Part 1: Generation FLUX 3 Video, Part 1 August 4, 2026 Read more", "gist": "FLUX 3 Video, Part 1: Generation FLUX 3 Video, Part 1 August 4, 2026 Read more", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}]}, {"id": "sec-products", "label": "AI产品", "color": "var(--c-products)", "items": [{"title": "Swiftlet：在 Mac 上运行 80B 版 Qwen（内存 4.3 GB），在 iPhone 上运行 35B 版", "source": "Hacker News 热门（buzzing.cc 中文翻译）", "url": "https://github.com/leonickson1/Swiftlet", "why": "AI 产品 / 生产力：Swiftlet：在 Mac 上运行 80B 版 Qwen（内存 4.3 GB），在 iPhone 上运行 35B 版", "gist": "Swiftlet 是一个 Swift + Metal 运行时，可在普通 Apple 设备上运行 Qwen3-Next 和 Qwen3.5/3.6 MoE 混合模型，仅将小型稠密核心驻留内存，按需从存储流式加载路由专家权重。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "Reflex 开源 XY：基于 Rust 的超快 Python 绘图库，可保持 1 亿点图表交互流畅", "source": "MarkTechPost（RSS）", "url": "https://www.marktechpost.com/2026/08/04/reflex-open-sources-xy-a-rust-backed-super-fast-python-charting-library-that-keeps-100-million-point-charts-interactive", "why": "AI 产品 / 生产力：Reflex 开源 XY：基于 Rust 的超快 Python 绘图库，可保持 1 亿点图表交互流畅", "gist": "Reflex AI 发布 Apache-2.0 许可的 Python 交互式 2D 绘图库 XY，通过 Rust 原生核心、二进制缓冲传输和 WebGL2 渲染，在 1 万至 1 亿点范围内保持约 0.08 秒的渲染时间。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "面壁智能开源 ForgeStencil：一周自动优化 100+ 工业与科学软件，全程零人工介入", "source": "公众号：面壁智能（MiniCPM）", "url": "https://mp.weixin.qq.com/s?__biz=Mzg3Mzg2MTg2NQ%3D%3D&mid=2247498861&idx=1&sn=d2d16692dd7eb27f9d466803f25c2b78", "why": "AI 产品 / 生产力：面壁智能开源 ForgeStencil：一周自动优化 100+ 工业与科学软件，全程零人工介入", "gist": "面壁智能联合 OpenBMB 开源全球首个支持 Stencil 自动研究、自动部署的 AI 优化系统 ForgeStencil，由 Kernel Agent 与 App Agent 闭环协作，实现从算子优化到应用集成的全自动流程。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "Soup v0.72.4：在4 GB显存笔记本GPU上微调8B模型", "source": "Hacker News 热门（buzzing.cc 中文翻译）", "url": "https://github.com/MakazhanAlpamys/Soup", "why": "AI 产品 / 生产力：Soup v0.72.4：在4 GB显存笔记本GPU上微调8B模型", "gist": "Soup 推出 v0.72.4，支持在配备 4 GB 显存的笔记本 GPU 上通过 QLoRA 微调 8B 模型，无需 SSH 或云服务。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "OpenRouter 推出 ori CLI：为 Claude Code 等 Harness 提供开箱即用的优化配置", "source": "OpenRouter：Announcements（RSS）", "url": "https://openrouter.ai/blog/announcements/ori-harness", "why": "AI 产品 / 生产力：OpenRouter 推出 ori CLI：为 Claude Code 等 Harness 提供开箱即用的优化配置", "gist": "OpenRouter 发布 ori CLI，用户安装并登录后即可获得针对 Claude Code、Codex、OpenCode、Hermes 等 harness 的优化配置，省去手动设置大量环境变量的麻烦。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "SpecForge v0.3.0 发布：统一解耦与共置投机解码栈，新增开放 SpecBundle 草稿模型", "source": "LMSYS：Blog（Chatbot Arena 团队）", "url": "https://www.lmsys.org/blog/2026-08-04-specforge-v0-3", "why": "AI 产品 / 生产力：SpecForge v0.3.0 发布：统一解耦与共置投机解码栈，新增开放 SpecBundle 草稿模型", "gist": "SpecForge v0.3.0 将目标模型推理与草稿模型训练分离，支持 EAGLE3、EAGLE3.1、P-EAGLE、DFlash、Domino、DSpark 等多种投机解码算法，并统一在线、离线与解耦工作流。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "Replit 环境智能：免提示词自动生成设计", "source": "X：Replit (@Replit)", "url": "https://x.com/Replit/status/2084761337570144424", "why": "AI 产品 / 生产力：Replit 环境智能：免提示词自动生成设计", "gist": "你无需提示词，也无需设计语言。 环境智能（Ambient Intelligence）会在每个画面旁显示建议卡片，每张卡片都指向你的设计的一个不同方向。点击你喜欢的那张，即可看到它生成一个新的画面。 你再也不必纠结下一步该做什么。 立即在 http://replit.com/design 体验。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}, {"title": "Cloudflare 让智能体通过本地追踪调试 Workers", "source": "Cloudflare Blog", "url": "https://blog.cloudflare.com/local-tracing", "why": "AI 产品 / 生产力：Cloudflare 让智能体通过本地追踪调试 Workers", "gist": "Cloudflare 即日起在 wrangler dev 和 vite dev 中自动为本地 Worker 调用捕获 OpenTelemetry 追踪，无需安装 SDK 或配置智能体。智能体可通过 Local Explorer API 查询追踪数据，定位失败操作、修复本地环境并验证结果。开发者也可在浏览器界面 Local Explorer 中可视化查看 spans、时序、错误及关联控制台日志。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}]}, {"id": "sec-industry", "label": "行业动态", "color": "var(--c-industry)", "items": [{"title": "Anthropic 与成立仅数月的云初创公司 Volta 签署 100 亿美元算力协议", "source": "X：Rohan Paul (@rohanpaul_ai)", "url": "https://x.com/rohanpaul_ai/status/2084655258102546579", "why": "行业动态 / 商业模式：Anthropic 与成立仅数月的云初创公司 Volta 签署 100 亿美元算力协议", "gist": "Anthropic 与成立仅数月的云初创公司 Volta 签署 100 亿美元算力协议，约合每年 17 亿美元。Volta 估值 24 亿美元，硬件几乎全为租用：算力来自比特币矿商 Bitdeer 挪威 121MW 站点，芯片由 Nvidia 供应、Dell 组装。Anthropic 买的是交付速度，代价是承担超大规模云厂商合同从未有过的交易对手风险。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}, {"title": "工信部发布首部L3/L4自动驾驶系统安全要求强制性国标，2027年7月实施", "source": "IT之家（RSS）", "url": "https://www.ithome.com/0/985/665.htm", "why": "行业动态 / 商业模式：工信部发布首部L3/L4自动驾驶系统安全要求强制性国标，2027年7月实施", "gist": "工信部组织制定的《智能网联汽车 自动驾驶系统安全要求》（GB 44721—2026）强制性国家标准获批发布，拟于2027年7月1日起实施。这是我国首部针对L3级有条件自动驾驶和L4级高度自动驾驶系统的强制性国标，由2024年推荐性国标GB/T 44721—2024升级而来，为自动驾驶产品明确了统一的安全准入基线。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}, {"title": "GPT-5.6 Luna降价80%永久生效", "source": "X：Tibo (@thsottiaux)", "url": "https://x.com/thsottiaux/status/2084506501834829833", "why": "行业动态 / 商业模式：GPT-5.6 Luna降价80%永久生效", "gist": "有些人显然误解了，但 GPT-5.6 Luna 降价 80% 不是临时噱头，而是永久的。效率提升不会消失。幸运的是。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}, {"title": "Mariano-Florentino (Tino) Cuéllar 加入 Anthropic 出任首席全球事务官", "source": "Anthropic：Newsroom（网页）", "url": "https://www.anthropic.com/news/tino-cuellar", "why": "行业动态 / 商业模式：Mariano-Florentino (Tino) Cuéllar 加入 Anthropic 出任首席全球事务官", "gist": "Anthropic 任命 Mariano-Florentino (Tino) Cuéllar 为首任首席全球事务官，负责全球政策、国际战略参与及政府关系事务。Cuéllar 曾任卡内基国际和平基金会主席、加州最高法院法官，并自 2026 年 1 月起担任 Anthropic 长期利益信托受托人，现已卸任该职务加入公司。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}, {"title": "OpenAI 说明第三方网络安全评估事件并公布新保障措施", "source": "OpenAI：官网动态（RSS · 排除企业/客户案例）", "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models", "why": "行业动态 / 商业模式：OpenAI 说明第三方网络安全评估事件并公布新保障措施", "gist": "OpenAI 就近期第三方网络安全评估事件作出说明，并公布新的保障措施以强化 AI 模型测试与评估流程。相关措施旨在提升模型评估的安全性与可靠性，确保第三方测试在受控环境下进行。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}, {"title": "AI 领袖提出 SAFE 指南，强化智能体网络安全透明度", "source": "NVIDIA Blog（RSS）", "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance-contributions", "why": "行业动态 / 商业模式：AI 领袖提出 SAFE 指南，强化智能体网络安全透明度", "gist": "Linux 基金会发布共享 AI 事件交换（SAFE）指南征求意见稿，旨在将智能体网络安全事件转化为全生态共享防护。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}, {"title": "Google 发布 Gemini 3.6 Flash 等三款新模型及 Gemini Robotics ER 2", "source": "Google Blog：AI（RSS）", "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026", "why": "行业动态 / 商业模式：Google 发布 Gemini 3.6 Flash 等三款新模型及 Gemini Robotics ER 2", "gist": "Google 在 7 月推出三款新 Gemini 模型——Gemini 3.6 Flash、3.5 Flash-Lite 和 3.5 Flash Cyber，面向生产级 AI 智能体，主打更高 token 效率、更低延迟和更可靠性能。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}]}, {"id": "sec-tip", "label": "技巧与实践", "color": "var(--c-tip)", "items": [{"title": "在单颗 AMD MI300X 上运行 DeepSeek V4 Flash", "source": "Hacker News 热门（buzzing.cc 中文翻译）", "url": "https://github.com/ryanzhou/deepseek-v4-flash-mi300x", "why": "技巧与实践 / 知识管理：在单颗 AMD MI300X 上运行 DeepSeek V4 Flash", "gist": "一个开源仓库提供了在单颗 AMD MI300X 上生产运行 DeepSeek-V4-Flash-0731 的完整配置与补丁，无需额外量化或权重卸载。该 304B 参数模型在 192 GB HBM 上实现单流 168.6 tok/s 解码、8 并发流 542 tok/s 聚合吞吐，并验证了 256K 上下文。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "MiniMax-H3 通过 MLX 移植可在 Apple Silicon 上运行", "source": "Simon Willison 博客", "url": "https://simonwillison.net/2026/Aug/4/minimax-h3-mlx", "why": "技巧与实践 / 知识管理：MiniMax-H3 通过 MLX 移植可在 Apple Silicon 上运行", "gist": "MiniMax 发布 MiniMax-H3，一个可接受文本、图像、音频和视频并生成最长 15 秒带音频视频片段的通用全模态生成系统。Python 包 PipeNetwork/minimax-h3-mlx 将其移植到 MLX，支持 Apple Silicon 运行。作者在 M5 Max MacBook Pro 上实测，下载约 115 GB 模型文件，视频生成耗时不到 45 分钟。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "用 NVIDIA SkillSpector、LangGraph、YARA 规则、SARIF 与 CI 策略门构建高级 AI 技能安全审计流水线", "source": "MarkTechPost（RSS）", "url": "https://www.marktechpost.com/2026/08/04/building-an-advanced-ai-skill-security-auditing-pipeline-with-nvidia-skillspector-langgraph-yara-rules-sarif-and-ci-policy-gates", "why": "技巧与实践 / 知识管理：用 NVIDIA SkillSpector、LangGraph、YARA 规则、SARIF 与 CI 策略门构建高级 AI 技能安全审计流水线", "gist": "本教程演示如何用 NVIDIA SkillSpector 评估 AI 技能的安全态势，构建包含干净、风险、恶意及 MCP 示例的合成技能市场，并通过 LangGraph 检查流水线扫描每个技能。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "Cloudflare 如何用软件工厂将 Astro 的 GitHub issue 数降至零", "source": "Cloudflare Blog", "url": "https://blog.cloudflare.com/astro-issue-triage", "why": "技巧与实践 / 知识管理：Cloudflare 如何用软件工厂将 Astro 的 GitHub issue 数降至零", "gist": "Cloudflare 在 Astro 仓库上运行自动化 triage 流水线，通过隔离的 AI 子代理复现、诊断并修复 bug，将开放 issue 从 200 多个降至约 30 个，预计下月归零。该流水线由 issue 标签驱动，修复后自动发布预览版本供用户验证。其底层引擎已发展为 Flue，一个开源的平台无关框架，用于构建持久化智能体与工作流。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "GitHub 如何用堆叠式 Pull Request 拆解 AI 生成的巨型代码", "source": "GitHub Blog", "url": "https://github.blog/engineering/turn-one-giant-ai-generated-pull-request-to-a-reviewable-stack", "why": "技巧与实践 / 知识管理：GitHub 如何用堆叠式 Pull Request 拆解 AI 生成的巨型代码", "gist": "GitHub 介绍用堆叠式 Pull Request（stacked PR）解决 AI 编码智能体生成巨型代码难以审查的问题。通过将 1,000+ 行的大 diff 按数据、API、接线、UI 拆成 L1-L4 四个独立分层，每层可分配不同审查者。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "如何用 LangSmith 评估语音智能体", "source": "LangChain：Blog（RSS）", "url": "https://www.langchain.com/blog/how-to-evaluate-voice-agents-execution-outcomes-and-experience", "why": "技巧与实践 / 知识管理：如何用 LangSmith 评估语音智能体", "gist": "LangChain 官方博客介绍如何用 LangSmith 评估语音智能体，覆盖执行、结果与来电者体验三个层面。评估手段包括 LangSmith traces、代码评估器、LLM judges 和人工审查，帮助开发者系统化验证语音智能体的实际表现。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "从零开始，教你用Codex搓出属于你自己的第一个硬件", "source": "公众号：数字生命卡兹克", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647684924&idx=1&sn=f9ecf13ac374f13dfa75f98f685a231d", "why": "技巧与实践 / 知识管理：从零开始，教你用Codex搓出属于你自己的第一个硬件", "gist": "作者以零基础身份，全程通过与Codex对话，从需求讨论、电路搭建、代码烧录到3D打印组装，5天内做出一个能提醒久坐的猫爪硬件。文中还介绍了用Agent调试宏键盘、以及OpenAI与Work Louder联名发布的Codex Micro键盘（13个机械按键，售价230美元）等案例，强调“干中学”的AI开发方式。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}, {"title": "杰文斯悖论还能持续吗：AI 定价分层如何支撑算力需求增长", "source": "Tomer Tunguz 博客（VC 分析）", "url": "https://www.tomtunguz.com/what-if-gpu-prices-double", "why": "技巧与实践 / 知识管理：杰文斯悖论还能持续吗：AI 定价分层如何支撑算力需求增长", "gist": "科技巨头高管普遍表示算力供应仍无法满足需求，但 AI 定价却在上涨：Anthropic 7 月 24 日发布的 Fable 5 定价每百万输出 token 50 美元，较 Opus 5 翻倍；OpenAI 则在 Fable 5 发布五天后将 GPT-5.6 Luna 价格下调 80%。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}]}];
 
-const GITHUB_WEEKLY = [
-  { repo: "microsoft/AI-For-Beginners", lang: "Jupyter Notebook", total: 60785, week: 7554,
-    why: "AI 知识管理 / AI 新技能：体系化的 AI 入门课程，是团队培训与自学知识库的优质原材料。",
-    gist: "微软官方出品的 AI 通识课程：12 周 24 课，覆盖 ML、DL、NLP、CV 等主题，含课件、实验与测验，多语言（含中文）。",
-    usable: "能，完全免费开源，内容成熟稳定。",
-    howto: "作为团队 AI 通识培训大纲使用；拆成 Obsidian 专题笔记沉淀；配合每课实验做内训作业。" },
-  { repo: "block/buzz", lang: "Rust", total: 21865, week: 7372,
-    why: "AI 新物种：“蜂群思维”多智能体协作通信平台，代表多 Agent 编排的新交互范式。",
-    gist: "Rust 编写的 hive mind 通信平台，让多个智能体与人协同工作。",
-    usable: "早期项目，可试玩，暂不建议生产依赖。",
-    howto: "重点研究其多 Agent 消息总线与角色分工设计，借鉴到自有 Agent 编排系统。" },
-  { repo: "zhaoxuya520/reverse-skill", lang: "PowerShell", total: 15859, week: 6154,
-    why: "AI 新技能：安全/逆向领域的技能路由包，是 Claude Code 生态“技能即知识封装”的典型案例。",
-    gist: "逆向工程/授权渗透/安全研究技能包：AI 自动路由 + 按需自举工具链 + 自进化知识库，支持 Claude Code、Kiro、Cursor、Cline 等客户端。",
-    usable: "能（限授权测试场景，注意合规）；以 PowerShell 为主。",
-    howto: "授权安全测试时作为技能包导入编码智能体；其“路由 + 自举 + 自进化”结构可复用到自有领域技能包。" },
-  { repo: "virgiliojr94/book-to-skill", lang: "Python", total: 15937, week: 5405,
-    why: "AI 知识管理：把书直接变成可调用的技能——正是“知识库 → 生产力”的最短路径。",
-    gist: "输入任意技术书 PDF，自动提炼生成一个 Claude Code 技能，工作过程中可随时检索、引用、调用书中知识。",
-    usable: "能，Python 实现，即装即用。",
-    howto: "把团队必读书目与内部文档批量转成技能包，让新人 onboarding 与日常查阅一体化。" },
-  { repo: "ayghri/i-have-adhd", lang: "Python", total: 16308, week: 5012,
-    why: "AI 新技能：输出风格类技能的代表——同一个模型，靠技能约束让产出可用性大增。",
-    gist: "一个阻止编码智能体“把答案埋在长篇输出里”的 ADHD 友好输出技能。",
-    usable: "能，安装即用。",
-    howto: "直接装入 Claude Code 改善日常输出；并借鉴其写法定制团队输出规范技能（如 PR 描述、周报格式）。" },
-  { repo: "alibaba/open-code-review", lang: "Go", total: 18453, week: 3881,
-    why: "AI 开发 / AI 企业信息化：大厂实战级 AI 代码评审，“确定性流水线 + LLM”混合架构是工程落地的范式。",
-    gist: "阿里开源代码评审工具：混合架构（确定性 pipeline + LLM Agent），行级精准评论，内置 NPE、线程安全、XSS、SQL 注入等多语言规则集，兼容 OpenAI 与 Anthropic API。",
-    usable: "能，Go 编写，可私有化部署，经阿里规模验证。",
-    howto: "接入 GitLab/GitHub CI 对 MR 自动评审：先用内置规则集跑通，再按团队规范扩展自定义规则。" },
-  { repo: "1jehuang/jcode", lang: "Rust", total: 15594, week: 3735,
-    why: "AI 开发：编码 harness 的极致资源优化，低配置环境跑智能体的新选项。",
-    gist: "Rust 编写，号称内存占用最低的编码智能体 harness。",
-    usable: "早期项目，建议先评估再采用。",
-    howto: "在资源受限环境（容器、边缘节点）跑编码 Agent 时与主流方案对比测试，关注其架构取舍。" },
-  { repo: "different-ai/openwork", lang: "TypeScript", total: 20685, week: 3429,
-    why: "AI 新物种 / AI 生产力：Claude Cowork 的开源替代，桌面级“AI 协作员工”的开源路线。",
-    gist: "基于 opencode 构建的开源替代方案，提供类似 Claude Cowork 的 AI 协作工作空间。",
-    usable: "能，支持自托管。",
-    howto: "数据敏感团队可自托管替代商业产品；先对比与原版的功能差距再决定是否迁移。" },
-  { repo: "moeru-ai/airi", lang: "TypeScript", total: 46717, week: 2978,
-    why: "AI 新物种：自托管虚拟伴侣/数字生命，是 Neuro-sama 路线的开源实现。",
-    gist: "自托管、用户自有的 AI 伴侣：支持实时语音聊天，能玩 Minecraft、Factorio，覆盖 Web/macOS/Windows。",
-    usable: "能，娱乐与陪伴向产品。",
-    howto: "研究其实时语音 + 游戏 Agent 的集成架构；做陪伴、虚拟主播类产品可直接参考。" },
-  { repo: "pascalorg/editor", lang: "TypeScript", total: 20939, week: 2953,
-    why: "AI 新技术：浏览器内的 3D 建筑项目协同编辑，是 AI + 3D 内容生产管线的观察样本。",
-    gist: "在浏览器中创建并分享 3D 建筑项目。",
-    usable: "早期项目。",
-    howto: "关注其与生成式 3D 模型（如 TRELLIS）结合形成“生成 → 编辑 → 分享”设计管线的可能性。" }
-];
+const GITHUB_WEEKLY = [{"repo": "microsoft/AI-For-Beginners", "lang": "Jupyter Notebook", "total": 61725, "week": 8582, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "12 Weeks, 24 Lessons, AI for All!", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "zhaoxuya520/reverse-skill", "lang": "PowerShell", "total": 18041, "week": 8386, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "block/buzz", "lang": "Rust", "total": 22583, "week": 7262, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "A hive mind communication platform", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "virgiliojr94/book-to-skill", "lang": "Python", "total": 16449, "week": 5420, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "ayghri/i-have-adhd", "lang": "Python", "total": 16819, "week": 4389, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "lyogavin/airllm", "lang": "Jupyter Notebook", "total": 28445, "week": 3911, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "AirLLM 70B inference with single 4GB GPU", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "TencentCloud/TencentDB-Agent-Memory", "lang": "TypeScript", "total": 13817, "week": 3659, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusable memory assets (Chat Memory, Skill, LLM-Wiki, Code-Graph) that are governed, shared, and equipped across agents and frameworks.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "different-ai/openwork", "lang": "TypeScript", "total": 20939, "week": 3601, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "The open-source alternative to Claude Cowork (powered by opencode)", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "alibaba/open-code-review", "lang": "Go", "total": 18819, "week": 3361, "why": "AI 开发 / 工程提效：代码质量与评审类工具，直接服务研发流程。", "gist": "Fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "1jehuang/jcode", "lang": "Rust", "total": 15905, "week": 3294, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "The most RAM efficient harness", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}];
 
 /* ---------- 渲染 ---------- */
 const app = document.getElementById("app");
@@ -763,12 +560,12 @@ app.innerHTML += `
         <tbody>${ghRows}</tbody>
       </table>
     </div>
-    <p class="gh-note">口径：GitHub Trending 周榜，筛选总星数 &gt; 3,000 后按本周新增星数取前十；今天早晨 09:38（北京时间）抓取，与日报口径相互独立。</p>
+    <p class="gh-note">口径：GitHub Trending 周榜，筛选总星数 &gt; 3,000 后按本周新增星数取前十；今天早晨 10:40（北京时间）抓取，与日报口径相互独立。</p>
   </section>`;
 
 /* ---------- Obsidian 收藏（按版块/单条可指定目录） ---------- */
 const OB_KEY = "aiDailyObsidian";
-const REPORT_DATE = "2026-08-04";
+const REPORT_DATE = "2026-08-05";
 const FOLDER_DEFS = [
   { id: "sec-models",   label: "AI模型",  def: "AI Learning/AI模型" },
   { id: "sec-products", label: "AI产品",  def: "AI Learning/AI产品" },
