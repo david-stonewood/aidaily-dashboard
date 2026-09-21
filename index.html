@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 日报 · 2026-09-20</title>
+<title>AI 日报 · 2026-09-21</title>
 <style>
   :root {
     --bg: #f6f7fb;
@@ -343,25 +343,24 @@
 
   <header class="hero">
     <div class="kicker">AI HOT · 每日精选</div>
-AI 晨报 · 2026 年 9 月 20 日（周日）
-<div class="sub">数据窗口：北京时间 9 月 19 日 08:00 — 9 月 20 日 08:00 · 日报于今天早晨 08:00 生成 · 每条附「为什么选 / 摘要 / 能不能用 / 怎么用」四问提炼</div>
-<div class="total">今日共收录 <strong>2</strong> 条精选动态 + GitHub 一周升星榜 <strong>10</strong> 条</div>
-<div class="stats">
-<div class="stat"><div class="n">0</div><div class="l">AI模型</div></div>
-<div class="stat"><div class="n">0</div><div class="l">AI产品</div></div>
-<div class="stat"><div class="n">1</div><div class="l">行业动态</div></div>
-<div class="stat"><div class="n">0</div><div class="l">论文研究</div></div>
-<div class="stat"><div class="n">1</div><div class="l">技巧与实践</div></div>
-    </div>
+AI 晨报 · 2026 年 9 月 21 日（周一）
+<div class="sub">数据窗口：北京时间 9 月 20 日 08:00 — 9 月 21 日 08:00 · 日报于今天早晨 08:00 生成 · 每条附「为什么选 / 摘要 / 能不能用 / 怎么用」四问提炼</div>
+<div class="total">今日共收录 <strong>4</strong> 条精选动态 + GitHub 一周升星榜 <strong>10</strong> 条</div>
+    <div class="stats">
+<div class="stat"><div class="n">2</div><div class="l">AI模型</div></div>
+<div class="stat"><div class="n">1</div><div class="l">AI产品</div></div>
+<div class="stat"><div class="n">0</div><div class="l">行业动态</div></div>
+<div class="stat"><div class="n">1</div><div class="l">论文研究</div></div>
+<div class="stat"><div class="n">0</div><div class="l">技巧与实践</div></div>
   </header>
 
   <nav class="toc">
-<a href="#sec-models">AI模型<span class="cnt">0</span></a>
-<a href="#sec-products">AI产品<span class="cnt">0</span></a>
-<a href="#sec-industry">行业动态<span class="cnt">1</span></a>
-<a href="#sec-paper">论文研究<span class="cnt">0</span></a>
-<a href="#sec-tip">技巧与实践<span class="cnt">1</span></a>
-<a href="#sec-github">GitHub升星<span class="cnt">10</span></a>
+<a href="#sec-models">AI模型<span class="cnt">2</span></a>
+<a href="#sec-products">AI产品<span class="cnt">1</span></a>
+<a href="#sec-industry">行业动态<span class="cnt">0</span></a>
+<a href="#sec-paper">论文研究<span class="cnt">1</span></a>
+<a href="#sec-tip">技巧与实践<span class="cnt">0</span></a>
+<a href="#sec-github">GitHub升星<span class="cnt">0</span></a>
     <button class="ob-settings-btn" id="aiSettingsBtn" type="button">🤖 AI 提炼设置</button>
     <button class="ob-settings-btn" id="favListBtn" type="button">★ 收藏夹 <span id="favCount">0</span></button>
     <button class="ob-settings-btn" id="obSettingsBtn" type="button">⚙ Obsidian 收藏设置</button>
@@ -370,8 +369,8 @@ AI 晨报 · 2026 年 9 月 20 日（周日）
   <main id="app"></main>
 
   <footer>
-<span>本期日报共 <strong>2</strong> 条（AI模型 0 · AI产品 0 · 行业动态 1 · 论文研究 0 · 技巧与实践 1）+ GitHub升星 10 条</span>
-数据源：<a href="https://aihot.virxact.com/daily/2026-09-20" target="_blank" rel="noopener noreferrer">AI HOT 日报 · 2026-09-20</a>；GitHub升星来自 <a href="https://github.com/trending?since=weekly" target="_blank" rel="noopener noreferrer">GitHub Trending（周榜）</a>，今天早晨 09:35（北京时间）抓取
+<span>本期日报共 <strong>4</strong> 条（AI模型 2 · AI产品 1 · 行业动态 0 · 论文研究 1 · 技巧与实践 0）+ GitHub升星 10 条</span>
+数据源：<a href="https://aihot.virxact.com/daily/2026-09-21" target="_blank" rel="noopener noreferrer">AI HOT 日报 · 2026-09-21</a>
     <span>摘要与四问提炼由 AI 整理；收藏功能通过 obsidian:// 协议写入本地 Obsidian 库</span>
   </footer>
 </div>
@@ -484,9 +483,9 @@ AI 晨报 · 2026 年 9 月 20 日（周日）
 <div class="toast" id="toast"></div>
 
 <script>
-const SECTIONS = [{"id": "sec-models", "label": "AI模型", "color": "var(--c-models)", "items": []}, {"id": "sec-products", "label": "AI产品", "color": "var(--c-products)", "items": []}, {"id": "sec-industry", "label": "行业动态", "color": "var(--c-industry)", "items": [{"title": "Anthropic 计划将 IPO 推迟至 11 月，估值约 2 万亿美元", "source": "IT之家（RSS）", "url": "https://www.ithome.com/1/004/369.htm", "why": "行业动态 / 商业模式：Anthropic 计划将 IPO 推迟至 11 月，估值约 2 万亿美元", "gist": "据《华尔街日报》报道，Anthropic 计划将 IPO 推迟至 11 月，晚于投资者预期的 10 月，以留出时间展示第三季度财务数据。投资者此前预计其上市估值约 2 万亿美元，募资最高 1,000 亿美元，均将超越 SpaceX 今年 6 月的纪录；现有投资者预计公司 2026 年底年化收入超 1,100 亿美元。竞争对手 OpenAI 表示 2027 年前不上市，正处新一轮融资早期讨论阶段。", "usable": "动态/观点参考，不可直接操作；可跟踪后续进展。", "howto": "跟踪原始公告与后续报道，评估对自身业务的影响面。"}]}, {"id": "sec-paper", "label": "论文研究", "color": "var(--c-paper)", "items": []}, {"id": "sec-tip", "label": "技巧与实践", "color": "var(--c-tip)", "items": [{"title": "Alexandr Wang 转发一份让 AI 智能体保护日历通勤时间的 Muse 提示词", "source": "X：Alexandr Wang（Scale AI 创始人/Meta 首席 AI 官） (@alexandr_wang)", "url": "https://x.com/alexandr_wang/status/2101141362607632873", "why": "技巧与实践 / 知识管理：Alexandr Wang 转发一份让 AI 智能体保护日历通勤时间的 Muse 提示词", "gist": "Alexandr Wang 转发 @trevin 分享的 Muse 提示词，该提示词也可用于 Instinct 和 Grok @bot，作用是扫描未来 14 天日历、为异地会议自动添加 Travel time 通勤缓冲时间块。", "usable": "能。方法/技巧可参照实践，按自身场景调整。", "howto": "先小范围验证，沉淀成团队 SOP 后再规模化。"}]}];
+const SECTIONS = [{"id": "sec-models", "label": "AI模型", "color": "var(--c-models)", "items": [{"title": "Qwen 开源 Qwen-Image-2.1：7B 统一生成与编辑并原生支持透明图像", "source": "Qwen：Blog Retrieval（API）", "url": "https://qwen.ai/blog?id=qwen-image-2.1", "why": "AI 新技术 / AI 开发：Qwen 开源 Qwen-Image-2.1：7B 统一生成与编辑并原生支持透明图像", "gist": "Qwen 团队开源 Qwen-Image-2.1，将文生图与图像编辑统一到一个模型中，视觉生成组件仅 7B 参数，并原生支持生成和编辑透明图像。模型支持最多 10 张参考图、圆形/涂鸦/独立蒙版指定局部编辑，通过混合粒度注意力架构和 KV cache 复用提升推理效率，同时改进文字渲染、人像光照与人物产品保真度，并覆盖全景图、信息图和分镜等任务。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}, {"title": "阶跃星辰发布旗舰模型 Step 5 Preview，10 月 15 日开源权重", "source": "公众号：阶跃星辰（Step）", "url": "https://mp.weixin.qq.com/s?__biz=MzkyNTYxNzg5Mg%3D%3D&mid=2247488120&idx=1&sn=8ba9ac7f0b36682d6262290677c665da", "why": "AI 新技术 / AI 开发：阶跃星辰发布旗舰模型 Step 5 Preview，10 月 15 日开源权重", "gist": "阶跃星辰发布旗舰基座模型 Step 5 Preview，采用稀疏 MoE 架构，总参数量 600B、激活 27B，支持 100 万 Token 上下文和文本与视觉输入，在 Artificial Analysis Intelligence Index 得 44 分，居全球开源模型前三，单任务成本为 Claude Opus 5 的 1/8。", "usable": "能。模型已开放商用，可评估后接入；注意算力与部署成本。", "howto": "先读官方文档与评测，小流量试点接入，再评估私有化或 API 成本。"}]}, {"id": "sec-products", "label": "AI产品", "color": "var(--c-products)", "items": [{"title": "Qwen-Image-2.1 已支持 ComfyUI，开源权重开放下载", "source": "X：通义千问 / Qwen (@Alibaba_Qwen)", "url": "https://x.com/Alibaba_Qwen/status/2101670814953455780", "why": "AI 产品 / 生产力：Qwen-Image-2.1 已支持 ComfyUI，开源权重开放下载", "gist": "Qwen 宣布 Qwen-Image-2.1 现已支持 ComfyUI，权重开放。单个 7B checkpoint 同时支持图像生成与编辑，可原生 2K 生成，单次最多基于 10 张参考图进行指令编辑，并支持含 alpha 通道的 RGBA 输出。", "usable": "能。产品已可用，按需试用并评估落地场景；注意与现有工具链的集成成本。", "howto": "注册试用，对照需求清单验证核心能力，小团队先行推广。"}]}, {"id": "sec-industry", "label": "行业动态", "color": "var(--c-industry)", "items": []}, {"id": "sec-paper", "label": "论文研究", "color": "var(--c-paper)", "items": [{"title": "独立调查：ChatGPT 的 __obi 跨站 Cookie 可将站外浏览行为关联到 ChatGPT 账号", "source": "Hacker News 热门（buzzing.cc 中文翻译）", "url": "https://www.buchodi.com/chatgpt-now-knows-what-you-do-on-other-websites-via-ad-collector", "why": "论文研究 / 学术前沿：独立调查：ChatGPT 的 __obi 跨站 Cookie 可将站外浏览行为关联到 ChatGPT 账号", "gist": "作者通过自己手机上的流量捕获复现了 OpenAI 广告收集器机制：bzr.openai.com 在 .openai.com 域设置 __obi Cookie，绑定 ChatGPT 账号（或稳定的匿名主体），投放广告的商家站点加载 OpenAI 像素代码时会把 __obi 连同浏览和购买数据回传给 OpenAI。", "usable": "论文/研究可参考，注意复现成本与实验条件限制。", "howto": "阅读原文与实验细节，评估与自身课题/业务的关联度。"}]}, {"id": "sec-tip", "label": "技巧与实践", "color": "var(--c-tip)", "items": []}]
 
-const GITHUB_WEEKLY = [{"repo": "alibaba/open-code-review", "lang": "Go", "total": 37586, "week": 15028, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "bilawalsidhu/gods-eye-view", "lang": "JavaScript", "total": 38652, "week": 10207, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "A spy satellite simulator in your browser, except the data is real. Live open source spatial intelligence on a photorealistic 3D globe.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "affaan-m/ECC", "lang": "JavaScript", "total": 262970, "week": 6265, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "ayghri/i-have-adhd", "lang": "Python", "total": 48710, "week": 5589, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "stablyai/orca", "lang": "TypeScript", "total": 72646, "week": 5404, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "Tencent/WeKnora", "lang": "Go", "total": 27448, "week": 4867, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "Panniantong/Agent-Reach", "lang": "Python", "total": 83471, "week": 3914, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Give your AI agent eyes to see the entire internet. Read &amp; search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "addyosmani/agent-skills", "lang": "JavaScript", "total": 97053, "week": 3445, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Production-grade engineering skills for AI coding agents.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "blader/humanizer", "lang": "Python", "total": 50261, "week": 3024, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Agent skill that removes signs of AI-generated writing from text", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "microsoft/markitdown", "lang": "Python", "total": 185667, "week": 2767, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Python tool for converting files and office documents to Markdown.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}];
+const GITHUB_WEEKLY = [{"repo": "alibaba/open-code-review", "lang": "Go", "total": 38414, "week": 15504, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "bilawalsidhu/gods-eye-view", "lang": "JavaScript", "total": 39660, "week": 8111, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "A spy satellite simulator in your browser, except the data is real. Live open source spatial intelligence on a photorealistic 3D globe.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "affaan-m/ECC", "lang": "JavaScript", "total": 263763, "week": 6453, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "stablyai/orca", "lang": "TypeScript", "total": 73643, "week": 5841, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "ayghri/i-have-adhd", "lang": "Python", "total": 49254, "week": 5249, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "Tencent/WeKnora", "lang": "Go", "total": 28022, "week": 5242, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "addyosmani/agent-skills", "lang": "JavaScript", "total": 97713, "week": 3986, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Production-grade engineering skills for AI coding agents.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "Panniantong/Agent-Reach", "lang": "Python", "total": 83861, "week": 3690, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "blader/humanizer", "lang": "Python", "total": 50642, "week": 3045, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Agent skill that removes signs of AI-generated writing from text", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}, {"repo": "heygen-com/hyperframes", "lang": "TypeScript", "total": 51964, "week": 2546, "why": "AI 新技能 / 开源新物种：本周高热度开源项目，值得关注其技术路线与生态。", "gist": "Write HTML. Render video. Built for agents.", "usable": "能，开源项目，可评估后自部署或直接使用。", "howto": "先看 README 与示例跑通最小用例，再评估接入团队工作流的成本。"}]
 
 /* ---------- 渲染 ---------- */
 const app = document.getElementById("app");
@@ -560,12 +559,12 @@ app.innerHTML += `
         <tbody>${ghRows}</tbody>
       </table>
     </div>
-<p class="gh-note">口径：GitHub Trending 周榜，筛选总星数 &gt; 3,000 后按本周新增星数取前十；今天早晨 09:35（北京时间）抓取，与日报口径相互独立。</p>
+<p class="gh-note">口径：GitHub Trending 周榜，筛选总星数 &gt; 3,000 后按本周新增星数取前十；今天早晨 09:45（北京时间）抓取，与日报口径相互独立。</p>
   </section>`;
 
 /* ---------- Obsidian 收藏（按版块/单条可指定目录） ---------- */
 const OB_KEY = "aiDailyObsidian";
-const REPORT_DATE = "2026-09-20";
+const REPORT_DATE = "2026-09-21";
 const FOLDER_DEFS = [
   { id: "sec-models",   label: "AI模型",  def: "AI Learning/AI模型" },
   { id: "sec-products", label: "AI产品",  def: "AI Learning/AI产品" },
