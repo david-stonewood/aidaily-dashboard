@@ -494,6 +494,22 @@ const SECTIONS = [{"name": "AI模型", "count": 0, "intro": "", "items": []}, {"
 
 const GITHUB_WEEKLY = [{"rank": 1, "repo": "boykopovar/AnyPS5", "lang": "C++", "total": 15842, "week": 10243, "why": "GitHub升星 / 开源趋势：boykopovar/AnyPS5", "gist": "Tool for automatic PS5 executables porting to Linux and Windows", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 2, "repo": "mattpocock/skills", "lang": "Shell", "total": 281118, "week": 7448, "why": "GitHub升星 / 开源趋势：mattpocock/skills", "gist": "Skills for Real Engineers. Straight from my .agents directory.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 3, "repo": "Panniantong/Agent-Reach", "lang": "Python", "total": 94162, "week": 6987, "why": "GitHub升星 / 开源趋势：Panniantong/Agent-Reach", "gist": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 4, "repo": "DuarteSantos8/openGym", "lang": "JavaScript", "total": 8034, "week": 6086, "why": "GitHub升星 / 开源趋势：DuarteSantos8/openGym", "gist": "Self-hosted gym & body-weight tracker — plan routines, log workouts (supersets, warm-ups, cardio), see which muscles are trained, fatigued or detrained, import from FitNotes/Strong/Hevy, passkey login. Your data, your server.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 5, "repo": "heygen-com/hyperframes", "lang": "TypeScript", "total": 59211, "week": 3996, "why": "GitHub升星 / 开源趋势：heygen-com/hyperframes", "gist": "Write HTML. Render video. Built for agents.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 6, "repo": "thedotmack/claude-mem", "lang": "TypeScript", "total": 98485, "week": 3153, "why": "GitHub升星 / 开源趋势：thedotmack/claude-mem", "gist": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 7, "repo": "pablostanley/yoinks", "lang": "TypeScript", "total": 5400, "week": 2706, "why": "GitHub升星 / 开源趋势：pablostanley/yoinks", "gist": "yoink any video from your terminal. no shady ads.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 8, "repo": "mvschwarz/openrig", "lang": "TypeScript", "total": 6159, "week": 2693, "why": "GitHub升星 / 开源趋势：mvschwarz/openrig", "gist": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 9, "repo": "earthtojake/text-to-cad", "lang": "Python", "total": 18476, "week": 1898, "why": "GitHub升星 / 开源趋势：earthtojake/text-to-cad", "gist": "Give your agent CAD superpowers.", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}, {"rank": 10, "repo": "cursor/plugins", "lang": "TypeScript", "total": 10402, "week": 1109, "why": "GitHub升星 / 开源趋势：cursor/plugins", "gist": "Cursor plugin specification and official plugins", "usable": "可评估作为技术选型或实现参考，重点看其架构与实现思路。", "howto": "查看方式：读 README 与最近提交 → 本地 clone 跑示例 → 判断是否能复用到现有项目。"}]
 
+/* ---------- 版块归一化：数据字段可能为 name 或 cat，渲染统一用 id/label/color ---------- */
+const SEC_META = {
+  "AI模型":   { id: "sec-models",   color: "#6366f1" },
+  "AI产品":   { id: "sec-products", color: "#0ea5e9" },
+  "行业动态": { id: "sec-industry", color: "#f59e0b" },
+  "论文研究": { id: "sec-paper",    color: "#10b981" },
+  "技巧与实践": { id: "sec-tip",    color: "#ec4899" },
+  "GitHub升星": { id: "sec-github", color: "#d97706" }
+};
+SECTIONS.forEach((s, i) => {
+  const m = SEC_META[s.name || s.cat] || {};
+  s.id = s.id || m.id || ("sec-x" + i);
+  s.label = s.label || s.name || s.cat || "未命名版块";
+  s.color = s.color || m.color || "#64748b";
+});
+
 /* ---------- 渲染 ---------- */
 const app = document.getElementById("app");
 let counter = 0;
